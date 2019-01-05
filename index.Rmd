@@ -1,0 +1,13 @@
+---
+title: "IPSA-USP Summer School"
+subtitle: "Introduction to Spatial Analysis"
+author: "Jonathan Phillips"
+#date: "May 13, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Test
