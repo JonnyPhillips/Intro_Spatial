@@ -1,0 +1,132 @@
+---
+title: "Syllabus"
+author: "Jonathan Phillips and Tainá Pacheco"
+date: "December 26, 2018"
+output: html_document
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Course Logistics
+
+The course will take place in the [Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH)](https://www.google.com.br/maps/place/FFLCH+-+Pr%C3%A9dio+de+Letras/@-23.5618195,-46.7275296,17z/data=!3m1!4b1!4m5!3m4!1s0x94ce5640eb6f8a59:0x6f53a42abbe26c0c!8m2!3d-23.5618195!4d-46.7253409) from 9am - 6pm. The specific room will be confirmed and contains computers with the necessary software pre-installed so you do not require your own laptop. 
+
+There are no prerequisites for this course, beyond an understanding of basic statistics.
+
+Please send any questions to [jphillips@usp.br](jphillips@usp.br) or [pacheco.taina@gmail.com](pacheco.taina@gmail.com).
+
+# Course Objectives
+
+Political interactions are often shaped by the geographical context in which they take place; by the shape of electoral boundaries, by the segregation of urban neighbourhoods, or by the distribution of natural resources. This course provides an introduction to thinking spatially.
+
+By the end of the course students will be able to :
+
+1. Reframe any political or social science question as a question of political geography: 
+    - Why are some countries democracies? ([Because they're neighbours of other democracies](https://onlinelibrary.wiley.com/doi/full/10.1111/sjpe.12140))
+    - Why is politics becoming more polarized? ([Because people with similar preferences choose to live together](http://www-personal.umich.edu/~jowei/florida.pdf))
+    - How long can I expect to live? ([It depends what county you live in](https://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html))
+
+2. Apply new tools to create and organize geographic datasets which can address these questions.
+
+3. Interpret and produce maps displaying important geographic relationships. 
+
+4. Implement spatial statistics used in a wide range of academic studies and policy analyses, including measures of spatial clustering (for example, of violence), segregation (by ethnicity), discontinuity (along borders) and manipulation (in gerrymandered elections). 
+
+Throughout the course we will discuss a range of applied examples from the rapidly growing fields of political geography and spatial analysis. Half of each day will be spent discussing conceptual and statistical issues in the use of spatial data, and half in the lab practicing and experimenting with datasets. We will explore datasets from published papers, and also from the wealth of spatial data published in Brazil, including both vector and raster data formats. 
+
+The labs will use open-source software to ensure students can continue learning on their own beyond the course, including QGIS as a Geographic Information System and R for spatial statistics. The exercises in the afternoon are designed to be conducted *both* in QGIS and R to enhance both your intuition and programming skills. You will be provided with all the guidance and support materials needed to conduct the lab activities and do not need prior experience in any software or programming language.
+
+# Pre-course Readings
+
+Because the course will involve intensive lab sessions, you may find it valuable to read the following materials before the start of the course:
+
+- O'Sullivan, David and David J. Unwin (2010), *Geographic Information Analysis*, 2nd Edition, Wiley Publishing, Chs. 1 & 2
+
+- Graser, Anita, Learning QGIS 2.0, Packt Publishing, 2013
+
+- Cho, Wendy K. Tam, and James G. Gimpel (2012), "Geographic Information Systems and the Spatial Dimensions of American Politics", Annual Review of Political Science, 15:443-60.
+
+- Enos, Ryan (2017), *The Space Between Us: Social Geography and Politics*, Ch. 1
+
+- Monmonier, Mark (2005), "Lying with Maps", Statistical Science, 20(3)
+
+- Lovelace et al, Geocomputation in R, Ch. 2 & 3, available [here](https://geocompr.robinlovelace.net/preface.html).
+
+# Course Outline
+
+## **Day 1: Concepts and Datasets**
+
+Why do spatial and geographic relationships matter for politics? Drawing on recent examples from the literature and policy debates, our goal is to create a typology and language of geographic relationships to guide the datasets and research questions we will use in the rest of the course. 
+
+*Lecture Topics:* Meaning of geography, advantages/disadvantages of spatial analysis, map examples, map literacy, data pipeline, vector vs. raster data, layers, longitude and latitude, datums, projections and coordinate reference systems, georeferencing
+
+*Readings:* 
+
+- David O'Sullivan and David J. Unwin (2010), Geographic Information Analysis, Chs. 1, 2 & 3
+- Lovelace et al, Geocomputation in R, Ch. 2 & 3
+- Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 1
+
+*Skills in QGIS and R:* Open shapefiles and attribute table, edit data, change projection, georeferencing, calculate new variables, colour schemes, printable maps, merging tables and shapefiles
+
+*Lab Exercise:* How did the 2014 second-round presidential result vary across Brazilian municipalities? Which municipalities had the most extreme results? How can we map the results?
+
+## **Day 2: Spatial Operations** 
+We discuss how to combine multiple sources of spatial data. For example, how to change points into polygons, polygons into points, and to assess the number of points in each polygon. These are crucial tools for calculating geographic measures and for preparing our datasets for analysis.
+
+*Lecture Topics:* Types of spatial objects, centroids, intersections, dissolve, buffers, spatial joins, count points per polygon, voronoi polygons
+
+*Skills in QGIS and R:* Multiple layers, spatial joins, conversion of spatial types, points in polygon, voronoi polygons
+
+*Lab Exercise:* What is the mean Human Development Index per state? Which parts of a municipality are indigenous territory? How are Brazil's social housing projects distributed? Which municipalities have the highest number and density of projects?
+
+*Readings:* 
+
+- Lovelace et al, Geocomputation in R, Ch. 4
+- Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 4
+
+## **Day 3: Raster Data** 
+
+The wide availability of satellite data provides new opportunities to measure every bit of territory and compare geographical features with social and political processes. We open and analyze raster data, use raster algebra, and combine raster and vector data.
+
+*Lecture Topics:* Kriging/IDW, Raster data manipulation, raster alegbra, extract to vector
+
+*Skills in QGIS and R:* Maths with rasters, colouring, masking, plotting rasters, average raster by polygon/point
+
+*Lab Exercise:* How has the distribution of Brazil's population changed over the last 50 years? Whichi states have the greatest increases in population density? 
+
+*Readings:* 
+
+- Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 5
+- Agnew, John and Min, Brian, 2008, "Baghdad nights: evaluating the US military `surge' using nighttime light signatures", Environment and Planning, 40, pp.2285-2295
+
+## **Day 4: Measurement** 
+
+We have learned how to visualize spatial relationships, but how do we measure them precisely? To characterize spatial interdependence and patterns, we derive basic statistical measures such as the Moran’s I measure of clustering and measures of spatial segregation. 
+
+*Lecture Topics:* Distance matrix, Autocorrelation, Moran's I (nearest neighbour based, talk about contiguity), LISA, Measures of Segregation
+
+*Skills in QGIS and R:* Moran scatterplot, Moran's I, LISA, Segregation Measures
+
+*Lab Exercise:* How clustered are human developmnet measures across Brazil's municipalities? How segregated are racial groups from each other in São Paulo and Rio de Janeiro?
+
+*Readings:*
+
+- O'Sullivan, David and David J. Unwin (2010), *Geographic Information Analysis*, 2nd Edition, Wiley Publishing, Chs. 7
+- Enos, Ryan (2017), *The Space Between Us: Social Geography and Politics*, Chs. 1 & 6
+
+## **Day 5: Applications**
+Drawing inspiration from recent political science papers, we replicate core spatial analyses of the role of boundaries and gerrymandering.
+
+*Lecture Topics:* Geographic discontinuity, Gerrymandering
+
+*Skills in QGIS and R:* Basics of regression with spatial data (geographic discontinuity), and full pipeline (gerrymandering)
+
+*Lab Exercise:* Basic gerrymandering analysis of compactness and geographic discontinuity of population density at Brazil border
+
+*Readings:* 
+
+- Chen, Jowei and Rodden, Jonathan (2013), "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures", Quarterly Journal of Political Science, 239:269
+- Keele, Luke J. and Titiunik, Roio (2015), "Geographic Boundaries as Regression Discontinuities", Political Analysis, 23:127-155

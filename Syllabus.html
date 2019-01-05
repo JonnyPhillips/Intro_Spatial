@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Jonathan Phillips and Tainá Pacheco" />
+
+<meta name="date" content="2018-12-26" />
+
+<title>Syllabus</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Intro to Spatial Analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Overview
+  </a>
+</li>
+<li>
+  <a href="Syllabus.html">
+    <span class="fa fa-book-open"></span>
+     
+    Syllabus
+  </a>
+</li>
+<li>
+  <a href="day_1.html">Day 1</a>
+</li>
+<li>
+  <a href="day_2.html">Day 2</a>
+</li>
+<li>
+  <a href="day_3.html">Day 3</a>
+</li>
+<li>
+  <a href="day_4.html">Day 4</a>
+</li>
+<li>
+  <a href="day_5.html">Day 5</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Syllabus</h1>
+<h4 class="author"><em>Jonathan Phillips and Tainá Pacheco</em></h4>
+<h4 class="date"><em>December 26, 2018</em></h4>
+
+</div>
+
+
+<div id="course-logistics" class="section level1">
+<h1>Course Logistics</h1>
+<p>The course will take place in the <a href="https://www.google.com.br/maps/place/FFLCH+-+Pr%C3%A9dio+de+Letras/@-23.5618195,-46.7275296,17z/data=!3m1!4b1!4m5!3m4!1s0x94ce5640eb6f8a59:0x6f53a42abbe26c0c!8m2!3d-23.5618195!4d-46.7253409">Faculdade de Filosofia, Letras e Ciências Humanas (FFLCH)</a> from 9am - 6pm. The specific room will be confirmed and contains computers with the necessary software pre-installed so you do not require your own laptop.</p>
+<p>There are no prerequisites for this course, beyond an understanding of basic statistics.</p>
+<p>Please send any questions to <a href="jphillips@usp.br" class="uri">jphillips@usp.br</a> or <a href="pacheco.taina@gmail.com" class="uri">pacheco.taina@gmail.com</a>.</p>
+</div>
+<div id="course-objectives" class="section level1">
+<h1>Course Objectives</h1>
+<p>Political interactions are often shaped by the geographical context in which they take place; by the shape of electoral boundaries, by the segregation of urban neighbourhoods, or by the distribution of natural resources. This course provides an introduction to thinking spatially.</p>
+<p>By the end of the course students will be able to :</p>
+<ol style="list-style-type: decimal">
+<li>Reframe any political or social science question as a question of political geography:
+<ul>
+<li>Why are some countries democracies? (<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/sjpe.12140">Because they’re neighbours of other democracies</a>)</li>
+<li>Why is politics becoming more polarized? (<a href="http://www-personal.umich.edu/~jowei/florida.pdf">Because people with similar preferences choose to live together</a>)</li>
+<li>How long can I expect to live? (<a href="https://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html">It depends what county you live in</a>)</li>
+</ul></li>
+<li><p>Apply new tools to create and organize geographic datasets which can address these questions.</p></li>
+<li><p>Interpret and produce maps displaying important geographic relationships.</p></li>
+<li><p>Implement spatial statistics used in a wide range of academic studies and policy analyses, including measures of spatial clustering (for example, of violence), segregation (by ethnicity), discontinuity (along borders) and manipulation (in gerrymandered elections).</p></li>
+</ol>
+<p>Throughout the course we will discuss a range of applied examples from the rapidly growing fields of political geography and spatial analysis. Half of each day will be spent discussing conceptual and statistical issues in the use of spatial data, and half in the lab practicing and experimenting with datasets. We will explore datasets from published papers, and also from the wealth of spatial data published in Brazil, including both vector and raster data formats.</p>
+<p>The labs will use open-source software to ensure students can continue learning on their own beyond the course, including QGIS as a Geographic Information System and R for spatial statistics. The exercises in the afternoon are designed to be conducted <em>both</em> in QGIS and R to enhance both your intuition and programming skills. You will be provided with all the guidance and support materials needed to conduct the lab activities and do not need prior experience in any software or programming language.</p>
+</div>
+<div id="pre-course-readings" class="section level1">
+<h1>Pre-course Readings</h1>
+<p>Because the course will involve intensive lab sessions, you may find it valuable to read the following materials before the start of the course:</p>
+<ul>
+<li><p>O’Sullivan, David and David J. Unwin (2010), <em>Geographic Information Analysis</em>, 2nd Edition, Wiley Publishing, Chs. 1 &amp; 2</p></li>
+<li><p>Graser, Anita, Learning QGIS 2.0, Packt Publishing, 2013</p></li>
+<li><p>Cho, Wendy K. Tam, and James G. Gimpel (2012), “Geographic Information Systems and the Spatial Dimensions of American Politics”, Annual Review of Political Science, 15:443-60.</p></li>
+<li><p>Enos, Ryan (2017), <em>The Space Between Us: Social Geography and Politics</em>, Ch. 1</p></li>
+<li><p>Monmonier, Mark (2005), “Lying with Maps”, Statistical Science, 20(3)</p></li>
+<li><p>Lovelace et al, Geocomputation in R, Ch. 2 &amp; 3, available <a href="https://geocompr.robinlovelace.net/preface.html">here</a>.</p></li>
+</ul>
+</div>
+<div id="course-outline" class="section level1">
+<h1>Course Outline</h1>
+<div id="day-1-concepts-and-datasets" class="section level2">
+<h2><strong>Day 1: Concepts and Datasets</strong></h2>
+<p>Why do spatial and geographic relationships matter for politics? Drawing on recent examples from the literature and policy debates, our goal is to create a typology and language of geographic relationships to guide the datasets and research questions we will use in the rest of the course.</p>
+<p><em>Lecture Topics:</em> Meaning of geography, advantages/disadvantages of spatial analysis, map examples, map literacy, data pipeline, vector vs. raster data, layers, longitude and latitude, datums, projections and coordinate reference systems, georeferencing</p>
+<p><em>Readings:</em></p>
+<ul>
+<li>David O’Sullivan and David J. Unwin (2010), Geographic Information Analysis, Chs. 1, 2 &amp; 3</li>
+<li>Lovelace et al, Geocomputation in R, Ch. 2 &amp; 3</li>
+<li>Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 1</li>
+</ul>
+<p><em>Skills in QGIS and R:</em> Open shapefiles and attribute table, edit data, change projection, georeferencing, calculate new variables, colour schemes, printable maps, merging tables and shapefiles</p>
+<p><em>Lab Exercise:</em> How did the 2014 second-round presidential result vary across Brazilian municipalities? Which municipalities had the most extreme results? How can we map the results?</p>
+</div>
+<div id="day-2-spatial-operations" class="section level2">
+<h2><strong>Day 2: Spatial Operations</strong></h2>
+<p>We discuss how to combine multiple sources of spatial data. For example, how to change points into polygons, polygons into points, and to assess the number of points in each polygon. These are crucial tools for calculating geographic measures and for preparing our datasets for analysis.</p>
+<p><em>Lecture Topics:</em> Types of spatial objects, centroids, intersections, dissolve, buffers, spatial joins, count points per polygon, voronoi polygons</p>
+<p><em>Skills in QGIS and R:</em> Multiple layers, spatial joins, conversion of spatial types, points in polygon, voronoi polygons</p>
+<p><em>Lab Exercise:</em> What is the mean Human Development Index per state? Which parts of a municipality are indigenous territory? How are Brazil’s social housing projects distributed? Which municipalities have the highest number and density of projects?</p>
+<p><em>Readings:</em></p>
+<ul>
+<li>Lovelace et al, Geocomputation in R, Ch. 4</li>
+<li>Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 4</li>
+</ul>
+</div>
+<div id="day-3-raster-data" class="section level2">
+<h2><strong>Day 3: Raster Data</strong></h2>
+<p>The wide availability of satellite data provides new opportunities to measure every bit of territory and compare geographical features with social and political processes. We open and analyze raster data, use raster algebra, and combine raster and vector data.</p>
+<p><em>Lecture Topics:</em> Kriging/IDW, Raster data manipulation, raster alegbra, extract to vector</p>
+<p><em>Skills in QGIS and R:</em> Maths with rasters, colouring, masking, plotting rasters, average raster by polygon/point</p>
+<p><em>Lab Exercise:</em> How has the distribution of Brazil’s population changed over the last 50 years? Whichi states have the greatest increases in population density?</p>
+<p><em>Readings:</em></p>
+<ul>
+<li>Menke, Kurt et al, Mastering QGIS, Packt Publishing, 2015, Ch. 5</li>
+<li>Agnew, John and Min, Brian, 2008, “Baghdad nights: evaluating the US military `surge’ using nighttime light signatures”, Environment and Planning, 40, pp.2285-2295</li>
+</ul>
+</div>
+<div id="day-4-measurement" class="section level2">
+<h2><strong>Day 4: Measurement</strong></h2>
+<p>We have learned how to visualize spatial relationships, but how do we measure them precisely? To characterize spatial interdependence and patterns, we derive basic statistical measures such as the Moran’s I measure of clustering and measures of spatial segregation.</p>
+<p><em>Lecture Topics:</em> Distance matrix, Autocorrelation, Moran’s I (nearest neighbour based, talk about contiguity), LISA, Measures of Segregation</p>
+<p><em>Skills in QGIS and R:</em> Moran scatterplot, Moran’s I, LISA, Segregation Measures</p>
+<p><em>Lab Exercise:</em> How clustered are human developmnet measures across Brazil’s municipalities? How segregated are racial groups from each other in São Paulo and Rio de Janeiro?</p>
+<p><em>Readings:</em></p>
+<ul>
+<li>O’Sullivan, David and David J. Unwin (2010), <em>Geographic Information Analysis</em>, 2nd Edition, Wiley Publishing, Chs. 7</li>
+<li>Enos, Ryan (2017), <em>The Space Between Us: Social Geography and Politics</em>, Chs. 1 &amp; 6</li>
+</ul>
+</div>
+<div id="day-5-applications" class="section level2">
+<h2><strong>Day 5: Applications</strong></h2>
+<p>Drawing inspiration from recent political science papers, we replicate core spatial analyses of the role of boundaries and gerrymandering.</p>
+<p><em>Lecture Topics:</em> Geographic discontinuity, Gerrymandering</p>
+<p><em>Skills in QGIS and R:</em> Basics of regression with spatial data (geographic discontinuity), and full pipeline (gerrymandering)</p>
+<p><em>Lab Exercise:</em> Basic gerrymandering analysis of compactness and geographic discontinuity of population density at Brazil border</p>
+<p><em>Readings:</em></p>
+<ul>
+<li>Chen, Jowei and Rodden, Jonathan (2013), “Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures”, Quarterly Journal of Political Science, 239:269</li>
+<li>Keele, Luke J. and Titiunik, Roio (2015), “Geographic Boundaries as Regression Discontinuities”, Political Analysis, 23:127-155</li>
+</ul>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

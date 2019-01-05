@@ -6,6 +6,9 @@ navbar:
     - text: "Overview"
       icon: fa-home
       href: index.html
+    - text: "Syllabus"
+      icon: fa-book-open
+      href: Syllabus.html
     - text: "Day 1"
       href: day_1.html
     - text: "Day 2"
