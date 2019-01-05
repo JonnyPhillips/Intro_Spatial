@@ -1,0 +1,104 @@
+---
+title: "Introduction to Spatial Analysis"
+subtitle: "Day 1  -Concepts and Datasets"
+author: "Jonathan Phillips"
+date: "January, 2019"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    widescreen: yes
+    center: false
+    transition: slide
+    reveal_options:
+      slideNumber: true
+  beamer_presentation:
+css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(sf)
+library(leaflet)
+library(mapview)
+world <- read_sf("world_shapefile/ne_50m_admin_0_countries.shp")
+```
+
+## Geography
+
+- What is your favourite sport?
+- Do you speak Spanish?
+- Who is Fofão?
+- How many kisses on the cheek do you greet someone with?
+- If you are on your own in a taxi do you sit in the front or back?
+- Do you think government policy should allow free migration?
+- Where do you live?
+
+## Geography
+
+- Knowledge and communication depend on where we live
+
+- Social norms and customs depend on where we live
+
+- Political preferences depend on where we live
+
+## Geography
+
+- Tobler's First Law of Geography:
+
+*"Everything is related to everything else, but near things are more related than distant things"*
+
+## Geography
+
+- What does 'near' mean?
+
+- Concepts of distance:
+    - Euclidean
+    - Great Circle
+    - Manhattan
+    - Levensthtein
+    - Mahalanobis
+    - Driving
+    - Network
+    - Minimum-cost
+    - Genetics
+    
+## Geography
+
+- What does 'related' mean?
+    - Correlated
+    - More similar
+    - More different (ex. dialing codes to avoid typing errors)
+
+- The relationship does not mean one person 'causes' a similar effect on another
+    - It may just be a common response to a similar environment
+    
+## Geography
+
+- [Map of spatial autocorr]
+
+## Geography
+
+<iframe width="1200" height="550" src="https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html" allowfullscreen></iframe>
+
+## Geography
+
+<iframe width="1200" height="550" src="https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA" allowfullscreen></iframe>
+
+## Geography
+
+- But isn't the world getting smaller? 
+    - 'The death of distance'
+    - Everything is 'near' on the internet
+    
+- Relevant distances may be changing
+    - Eg. cost instead of kilometres or hours
+    - Language and social network instead of proximity to radio tower
+
+
+
+
+
+
+## fall line

@@ -1,0 +1,302 @@
+---
+title: "Introduction to Spatial Analysis"
+subtitle: "Day 1  -Concepts and Datasets"
+author: "Jonathan Phillips"
+date: "January, 2019"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    widescreen: yes
+    center: false
+    transition: slide
+    reveal_options:
+      slideNumber: true
+  beamer_presentation:
+css: styles.css
+---
+
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(sf)
+library(leaflet)
+library(mapview)
+library(xtable)
+library(units)
+library(dismo)
+#world <- read_sf("world_shapefile/ne_50m_admin_0_countries.shp")
+```
+
+## Transforming Spatial Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Spatial_Data_Types.png")
+```
+
+## Transforming Spatial Data
+
+**From Polygons to Points - Centroids**
+
+- How far is it between São Paulo and the other municipalities in São Paulo?
+    - We only have the polygon shapefile...
+    - No single answer
+    - But we can calculate the **centroids** of each polygon
+
+```{r, results='asis'}
+municipalities <- read_sf("../../Data/municipalities.shp")
+SP <- municipalities %>% filter(UF=="SP")
+
+SP %>% ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NULL)
+```
+
+## Transforming Spatial Data
+
+**From Polygons to Points - Centroids**
+
+- How far is it between São Paulo and the other municipalities in São Paulo?
+    - We only have the polygon shapefile...
+    - No single answer
+    - But we can calculate the **centroids** of each polygon
+
+```{r, results='asis'}
+SP %>% st_centroid() %>% ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Points to Polygons - Buffers**
+
+- We want to find the area within 10km of each centroid
+
+```{r, results='asis'}
+SP %>% st_centroid() %>% ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Points to Polygons - Buffers**
+
+- We want to find the area within 10km of each centroid
+
+```{r, results='asis'}
+SP %>% st_centroid() %>% st_transform(22524) %>% st_buffer(dist=10000) %>% 
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Points to Polygons - Voronoi Polygons**
+
+- We want to create a 'tesselating' surface with no gaps between the polygons
+    - Each point in space is assigned to the polygon associated with the nearest point
+
+```{r, results='asis'}
+outline <- st_union(SP %>% st_transform(22524) %>% st_union())
+
+SP %>% st_centroid() %>% 
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Points to Polygons - Voronoi Polygons**
+
+- We want to create a 'tesselating' surface with no gaps between the polygons
+    - Each point in space is assigned to the polygon associated with the nearest point
+
+```{r, results='asis'}
+outline <- st_union(SP %>% st_transform(22524) %>% st_union())
+
+SP %>% st_centroid() %>% st_transform(22524) %>% as("Spatial") %>% voronoi() %>% 
+  st_as_sf() %>%
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+
+```
+
+## Transforming Spatial Data
+
+**From Points to Polygons - Voronoi Polygons**
+
+- We want to create a 'tesselating' surface with no gaps between the polygons
+    - Each point in space is assigned to the polygon associated with the nearest point
+
+```{r, results='asis'}
+SP %>% st_centroid() %>% st_transform(22524) %>% as("Spatial") %>% voronoi() %>% 
+  st_as_sf() %>%
+  st_intersection(outline) %>%
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+
+```
+
+## Transforming Spatial Data
+
+**From Points to Lines - Creating a Graph**
+
+```{r, results='asis'}
+SP %>% st_centroid() %>% ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Points to Lines - Creating a Graph**
+
+```{r}
+SP %>% st_centroid() %>% mutate(Upper=case_when(PIB_PER>mean(SP$PIB_PER,na.rm=T)~T,
+                                          TRUE~F)) %>% 
+  group_by(Upper) %>%
+  summarize(m=mean(Upper)) %>%
+  st_cast("LINESTRING") %>%
+  ggplot() +
+  geom_sf(aes(col=Upper)) +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Polygons to Lines - Boundaries**
+
+```{r}
+SP %>%
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Polygons to Lines - Boundaries**
+
+```{r}
+SP %>% st_union() %>% st_cast("MULTILINESTRING") %>%
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+```
+
+## Transforming Spatial Data
+
+**From Polygons to (bigger) Polygons - Dissolve**
+
+```{r}
+municipalities %>% group_by(UF) %>% summarize() %>%
+  ggplot() +
+  geom_sf() +
+  theme_minimal() +
+  coord_sf(datum=NA)
+
+```
+
+## Transforming Spatial Data
+
+- Transformations:
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Transformations_Table.png")
+```
+
+## Layers
+
+- The power of spatial analysis comes from *combining* data sources
+    - Spatial + Non-Spatial
+    - Spatial + Spatial
+    
+- This helps us answer new questions:
+    - Where are left-wing votes geographically clustered?
+    - Are school results better north or south of the river?
+    - Do places with less rainfall suffer more violence?
+
+## Layers
+
+- Spatial layers 'overlap' based on their common location attributes
+    - CRUCIAL to have the same projection
+    - Less important which projection
+
+- Handling multiple layers:
+    - Hard in Stata
+    - Easy in GIS
+    - Easy in R
+
+## Layers
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Layers.jpg")
+```
+
+## Non-Spatial Joins
+
+- Governments publish school performance data
+    - But what is the spatial pattern of school performance? 
+    - Better in the city centre or in the suburbs?
+
+- We need a source for the location of the schools
+    - Perhaps from a separate geographical survey
+    - Or by georeferencing their addresses
+    
+- How do we combine the school performance and location datasets?
+    - Join on a unique identifier
+    - By code
+    - By name?
+
+## Non-Spatial Joins
+
+[Add ex./illustration]
+
+## Spatial Joins
+
+- Do schools located in the cerrado ('savannah') perform better than those in other regions?
+    - Two spatial data sources: school point locations, and cerrado area
+    - Calculation: Average school performance by ecological region
+    - But which schools are in which region?
+    
+- We need to overlay the schools on the map of the cerrado and 'add' the ecological region details to the school dataset
+
+## Spatial Joins
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Spatial_Join.jpg")
+```
+    
+

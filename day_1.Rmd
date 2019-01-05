@@ -1,0 +1,56 @@
+---
+title: "Day 1 - Concepts and Datasets"
+#author: "Jonathan Phillips"
+#date: "May 13, 2017"
+output: html_document
+---
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(knitr)
+```
+
+<div class="column-left">
+**Morning**
+
+1. Introduction to the Course
+2. Lecture
+3. Using QGIS for Spatial Analysis
+4. Using R for Spatial Analysis
+
+</div>
+
+
+<div class="column-right">
+**Afternoon**
+
+1. Lab Question: 
+How did the 2014 second-round presidential result vary across Brazilian municipalities? Which municipalities had the most extreme results? How can we map the results?
+
+</div>
+
+
+As part of the IPSA-USP Summer School, this course provides a fast introduction to how to conduct spatial analysis for the social sciences. It focuses on the concepts, terminology and tools that students need to be able to analyze spatial data themselves in the course of their research. 
+
+A subsequent course, taught by Laron Williams of the University of Missouri, provides more in-depth training on how to understand and model spatial interdependence.
+
+[Syllabus](https://jonnyphillips.github.io/Intro_Spatial/Syllabus.html)  
+
+[Day 1 - Concepts and Datasets](https://jonnyphillips.github.io/Intro_Spatial/day_1.html)  
+[Day 2 - Spatial Operations](https://jonnyphillips.github.io/Intro_Spatial/day_2.html)  
+[Day 3 - Raster Data](https://jonnyphillips.github.io/Intro_Spatial/day_3.html)  
+[Day 4 - Measurement](https://jonnyphillips.github.io/Intro_Spatial/day_4.html)  
+[Day 5 - Applications](https://jonnyphillips.github.io/Intro_Spatial/day_5.html)  
