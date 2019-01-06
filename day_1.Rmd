@@ -22,35 +22,24 @@ output: html_document
 knitr::opts_chunk$set(echo = F)
 library(knitr)
 ```
+<br> </br>
 
-<div class="column-left">
 **Morning**
 
 1. Introduction to the Course
-2. Lecture
-3. Using QGIS for Spatial Analysis
-4. Using R for Spatial Analysis
+2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v6.html)
+3. Intro to using QGIS for Spatial Analysis
+4. Intro to using R for Spatial Analysis
 
-</div>
-
-
-<div class="column-right">
 **Afternoon**
 
 1. Lab Question: 
-How did the 2014 second-round presidential result vary across Brazilian municipalities? Which municipalities had the most extreme results? How can we map the results?
+How did the 2014 second-round presidential result vary across Brazilian municipalities? 
+Which municipalities had the most extreme results? 
+How can we map the results?
 
-</div>
+Files:
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Data/municipalities.shp)
+[Presidential Election Results](https://jonnyphillips.github.io/Intro_Spatial/Data/Pres_election_2014.csv)
 
-
-As part of the IPSA-USP Summer School, this course provides a fast introduction to how to conduct spatial analysis for the social sciences. It focuses on the concepts, terminology and tools that students need to be able to analyze spatial data themselves in the course of their research. 
-
-A subsequent course, taught by Laron Williams of the University of Missouri, provides more in-depth training on how to understand and model spatial interdependence.
-
-[Syllabus](https://jonnyphillips.github.io/Intro_Spatial/Syllabus.html)  
-
-[Day 1 - Concepts and Datasets](https://jonnyphillips.github.io/Intro_Spatial/day_1.html)  
-[Day 2 - Spatial Operations](https://jonnyphillips.github.io/Intro_Spatial/day_2.html)  
-[Day 3 - Raster Data](https://jonnyphillips.github.io/Intro_Spatial/day_3.html)  
-[Day 4 - Measurement](https://jonnyphillips.github.io/Intro_Spatial/day_4.html)  
-[Day 5 - Applications](https://jonnyphillips.github.io/Intro_Spatial/day_5.html)  
+[Step-by-Step Guide to QGIS Analysis](https://docs.google.com/presentation/d/1-YTmKeM7lO7z5sWXh1ygwBFXaDgNPPnCI6-pvNeB0bo/present?usp=sharing)

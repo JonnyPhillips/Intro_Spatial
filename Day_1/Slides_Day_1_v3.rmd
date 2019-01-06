@@ -1,0 +1,559 @@
+---
+title: "Introduction to Spatial Analysis"
+subtitle: "Day 1  -Concepts and Datasets"
+author: "Jonathan Phillips"
+date: "January, 2019"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    widescreen: yes
+    center: false
+    transition: slide
+    reveal_options:
+      slideNumber: true
+  beamer_presentation:
+css: styles.css
+---
+
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(sf)
+library(leaflet)
+library(mapview)
+library(xtable)
+#world <- read_sf("world_shapefile/ne_50m_admin_0_countries.shp")
+```
+
+## Geography
+
+- What is your favourite sport?
+- Do you speak Spanish?
+- Do you know who Fofão is?
+- How many kisses on the cheek do you greet someone with?
+- If you are on your own in a taxi do you sit in the front or back?
+- Do you think government policy should allow free migration?
+- Where do you live?
+
+## Geography
+
+- Knowledge and communication depend on where we live
+
+- Social norms and customs depend on where we live
+
+- Political preferences depend on where we live
+
+## Geography
+
+- Tobler's First Law of Geography:
+
+*"Everything is related to everything else, but near things are more related than distant things"*
+
+## Geography
+
+- What does 'near' mean?
+
+- Concepts of distance:
+    - Euclidean
+    - Great Circle
+    - Manhattan
+    - Levensthtein
+    - Mahalanobis
+    - Driving
+    - Network
+    - Minimum-cost
+    - Genetics
+    
+## Geography
+
+- What does 'related' mean?
+    - Correlated
+    - More similar
+    - More different (ex. dialing codes to avoid typing errors)
+
+- 'Related' does not mean one person 'causes' a similar effect on another
+    - It may just be a common response to a similar environment
+    
+## Geography
+
+- [Map of spatial autocorr]
+
+## Geography
+
+<iframe width="1600" height="700" src="https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA" allowfullscreen></iframe>
+
+## Geography
+
+<iframe width="1200" height="550" src="https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html" allowfullscreen></iframe>
+
+https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html
+
+## Geography
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Snow_Cholera.png")
+```
+
+## Geography
+
+<iframe width="1200" height="550" src="http://especiais.g1.globo.com/politica/eleicoes/2018/mapa-da-apuracao-no-brasil-presidente/1-turno/" allowfullscreen></iframe>
+
+
+## Geography
+
+- But isn't the world getting smaller? 
+    - 'The death of distance'
+    - Everything is 'near' on the internet
+    
+- Relevant distances may be changing
+    - Cost of flights instead of kilometres or hours
+    - Language and social network instead of proximity to radio tower
+
+- Spatial relationships take place at **multiple scales**
+    - I am Welsh, British, European etc.
+    - The similarities between rural China and rural Russia are greater than the differences
+
+## Geography
+
+- Lots of interesting questions are really non-spatial
+    - We can draw maps of them
+    - But the conclusion does not depend on the *locations* of the units
+    
+Non-spatial Question    | Spatial Question
+------------------------|---------------------
+Which state in Brazil is richest? (DF) | Where in Brazil are states richest? (Southeast)
+How many countries have had cases of ebola? (11) | Which part of Africa was affected by ebola (West and Central)?
+What is the population of the USA? (~325m) | How many people live West of the Mississippi? (~136m)
+
+## Geography
+
+[****]
+
+- Geography is more than just 'clustering'
+    
+- A Typology of Spatial Relationships    
+    1. Clustering
+    2. Natural resources/barriers
+    3. Administrative barriers
+
+## Geography
+
+- Physical features also affect social and political processes
+    - Attracting economic activity
+    - Preventing interactions
+
+## Geography
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Fall_Line_Cities.png")
+```    
+
+## Geography
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Madagascar.jpg")
+```
+
+## Geography
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Joana_Sugar_Cane.png")
+```
+
+## Merits of Spatial Analysis
+
+<div class="column-left">
+Opportunities:
+
+- Deeper explanations for common outcomes
+- Avoid confounding relationships
+- Enabling new inferential methodologies
+</div>
+
+<div class="column-right">
+Limitations:
+
+- Data are not 'independent' for statistical analysis
+- Data are often aggregated, and the level of aggregation affects our conclusions (Modifiable Areal Unit Problem, Ecological Fallacy)
+</div>
+
+## Map Literacy
+
+- Maps are **clear** and **convincing**
+    - Patterns may only be visible when arranged spatially
+    - If you have *spatial* data, why put it in a table or a chart?
+
+## Map Literacy
+
+```{r, results='asis'}
+mun <- readRDS("mun2.rds") %>% st_as_sf()
+mun <- mun %>% filter(UF=="AC")
+
+mun %>% dplyr::select(GEOCOD,NOME_AC,POP_2010) %>% st_set_geometry(NULL) %>% arrange(-POP_2010) %>% xtable()
+```
+
+## Map Literacy
+
+```{r}
+mun %>% st_set_geometry(NULL) %>% ggplot() +
+  geom_col(aes(x=NOME_AC,y=POP_2010)) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle=90))
+```
+
+## Map Literacy
+
+```{r}
+mun %>% ggplot() +
+  geom_sf(aes(fill=POP_2010)) +
+  theme_minimal() +
+  coord_sf(datum=NULL) +
+  scale_fill_continuous(low="white",high="red",trans="log")
+```
+
+## Map Literacy
+
+- But maps still require careful interpretation
+
+## Map Literacy
+
+- Scale
+    - Can I walk from The Art Institute of Chicago to Union Station in 10 minutes?
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Chicago.png")
+```
+
+## Map Literacy
+
+- Scale
+    - Can I walk from The Art Institute of Chicago to Union Station in 10 minutes?
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Chicago2.png")
+```
+
+## Map Literacy
+
+- Compass
+    - What's the best place to view the sunset in the Wirral (UK)?
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Wirral.png")
+```
+
+## Map Literacy
+
+- Compass
+    - What's the best place to view the sunset in the Wirral (UK)?
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Wirral2.png")
+```
+
+## Map Literacy
+
+- Legend
+   - Can be manipulated to convey relevant (or misleading!) conclusions
+   
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Legends.png")
+```   
+   
+## Map Literacy
+
+- Choosing the Indicator
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Death_Rates.png")
+```
+
+## Geographic Information Systems
+
+1. Convert the real world into a digital model
+    - Necessarily simplified
+
+2. Compare multiple spatial layers
+
+3. Create measures and statistics to describe spatial relationships
+
+## Vector vs. Raster Data
+
+<div class="column-left">
+- Vector
+    - Start with a blank page
+    - Add specific **objects** (points, lines, polygons) defined by coordinates (x,y)
+    - The computer stores just the coordinates of the objects
+    - Non-spatial 'Attributes' of each object allow complex analyses
+</div>
+
+<div class="column-right">
+- Raster
+    - Start with a grid
+    - Each grid square (pixel) has a value
+    - The computer stores one value for every grid square (fixed memory size)
+    - Mostly for 'continuous' remote sensing (satellite) images
+</div>
+
+## Vector vs. Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("OS_Map.jpg")
+```    
+
+## Types of Vector Data
+
+Type | Dimensions
+-----|-----------
+Point | 0 | 
+Line | 1 | 
+Polygon | 2 | 
+
+- An analysis choice, and depends on scale
+
+## Types of Vector Data
+
+- The attributes we assign to vector objects also vary
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Spatial_Data_Types.png")
+```
+
+## Locations in Space
+
+- How do we describe the location of an object in space?
+
+- The real world is 3-dimensional
+    - Mostly we deal with points on the earth's surface
+    - This is not a problem for computers that can create 'virtual earths'
+
+- **Geographic Coordinate Systems**
+    - 'Perfect' representations of earth in the computer
+    - Longitude and Latitude define any point on earth
+
+## Locations in Space
+
+- Longitude = Angle from equator (N/S)
+- Latitude = Angle from Greenwich, London (E/W)
+
+```{r, out.width="700px", fig.cap="", fig.align="center"}
+include_graphics("Lat_Long.PNG")
+```
+
+## Locations in Space
+
+- Longitude & Latitude can be measured in different units
+    - DMS: 49°30’00″N, 123°30’00″W
+    - DM:  49°30.0′, -123°30.0'
+    - Decimal Degrees: 49.5000°,-123.5000°
+
+- But all of these use the same *Geographic Coordinate System*
+    - And we 'always' use the same one 
+    - **WGS-84**
+
+## Locations in Space
+    
+- What shape is the earth?
+    - An 'oblate spheroid'
+ 
+```{r, out.width="400px", fig.cap="", fig.align="center"}
+include_graphics("Oblate_Spheroid.PNG")
+```   
+
+- This oblate spheroid is estimated by a 'datum' so we get the location correct
+    - No need to worry about this, WGS-84 includes its own datum
+
+## Locations in Space
+
+- But we view maps on flat surfaces: paper or screens
+    - Try peeling an orange
+
+- To produce flat maps we need a **Projected Coordinate Reference System**
+    - Translating 3-D locations to 2-D locations
+    - There are many different ways to do this, just as there are many ways to peel an orange
+
+## Locations in Space
+
+- Projections can preserve shape, area or distance, but not all three!
+
+```{r, out.width="400px", fig.cap="", fig.align="center"}
+include_graphics("Projections.png")
+```
+
+## Locations in Space
+
+- Projections are less distorted if they are localized to one part of the earth
+    - So we choose a projection based on the extent of our analysis/map
+
+- Ex. UTM (Universal Transverse Mercator) Zone
+
+- Use [http://epsg.io/](http://epsg.io/) to find appropriate local projections
+
+## Locations in Space
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Utm-zones.jpg")
+```
+
+## Locations in Space
+
+Coordinate Reference Systems have useful shortcut EPSG codes
+    - In R, this is all you need
+
+Coordinate Ref. System | Type     | EPSG Code
+-----------------------|----------|----------------
+WGS-84                 | Geographic | 4326
+Corrego Alegre / UTM zone 23S (Coastal Brazil) | Projected | 22523
+Chua / UTM zone 23S (Distrito Federal) | Projected | 4071
+
+## Locations in Space
+
+- Which Coordinate Reference System (CRS) should I use? 
+    - **Important:** You *don't choose* - your data sources already come with a specific CRS
+    - **Important:** ALL data in the analysis must use the same CRS
+    - That means sometimes we have to transform from one coordinate system to another
+    - For projections, do you want to convey shape, area or distance accurately?
+    
+## Georeferencing
+
+- With a CRS, computers understand locations such as -23.562778, -46.725261
+- But what if we have a street address? 
+    - Ex. Av. Paulista, 1578, Sao Paulo 
+    - We can use georeferencing databases to return the coordinates
+    - Ex. [https://nominatim.openstreetmap.org](https://nominatim.openstreetmap.org)
+    
+## Georeferencing
+
+- We can also take an image and georeference it to a map
+```{r, out.width="250px", fig.cap="", fig.align="center"}
+include_graphics("Captaincies.jpg")
+```
+
+- We need to 'pin' the map to at least two points
+    - And 'wrap' it around the earth's surface
+    - Ex. [https://www.georeferencer.com/](https://www.georeferencer.com/)
+
+## Spatial Datasets
+
+- Non-spatial datasets are just tables
+
+- Spatial datasets just add location data to the table
+
+## Spatial Datasets
+
+```{r, out.width="650px", fig.cap="", fig.align="center"}
+include_graphics("map_attributes.png")
+```
+
+## Spatial Datasets
+
+- Vector Spatial Datasets
+    - Coordinates for every object
+    - Multiple coordinates for lines, polygons
+    
+Code        | Name           | Location
+------------|----------------|-----------
+001         | Minas Gerais   | -48.77246, -17.773988
+002         | Rio de Janeiro | -49.24686, -16.819800
+
+## Spatial Datasets
+
+- Vector Spatial Datasets
+    - Coordinates for every object
+    - Multiple coordinates for lines, polygons
+    
+Code        | Name           | Location
+------------|----------------|-----------
+001         | Minas Gerais   | MULTIPOLYGON ((( -48.77246 -17.773988, -48.77252 -17.773970, -48.77266 -17.773990)))
+002         | Rio de Janeiro | MULTIPOLYGON ((( -49.24686 -16.819800, -49.24701 -16.819812, -49.24707 -16.819838)))
+
+## Spatial Datasets
+
+- One single 'Multipolygon' can be complicated
+    - Comprised of many distinct polygons
+    - Polygons can have 'holes' in them
+    
+```{r, out.width="250px", fig.cap="", fig.align="center"}
+include_graphics("Polygon_with_Hole.png")
+```
+
+## Spatial Datasets
+
+- Raster Spatial Datasets
+    - Coordinates for every data point
+
+x        | y        | value
+---------|----------|-----------
+-106.05 | 35.96 | 0
+-106.06 | 35.96 | 13
+-105.07 | 35.96 | 2
+-105.08 | 35.96 | 0
+
+## Spatial Datasets
+
+- Historically, vector data has been stored as **shapefiles**
+    - Shapefiles separate out the tables, location data, projection into separate files
+    
+File         | Contains
+-------------|----------------
+Data.shp     | Geometry details
+Data.dbf     | Non-spatial attribute data (a table)
+Data.shx     | Indexing of the geometry to match the table
+Data.prj     | Details of the projection
+
+
+## Spatial Datasets
+
+- Raster data is typically stored as .tiff files
+    - The same as you get from a camera or scanner
+    - But with location and projection data so that we know 'where' the image corresponds to
+    
+## Non-Spatial Joins
+
+- Most of our data is non-spatial, but *could be* made spatial
+    - Election results
+    - Death rates
+    - 
+
+- Governments publish school performance data
+    - But what is the *spatial* pattern of school performance? 
+    - Better in the city centre or in the suburbs?
+
+- We need a source for the location of the schools
+    - Perhaps from a separate geographical survey
+    - Or by georeferencing their addresses
+    
+- How do we combine the school performance and location datasets?
+    - Join on a unique identifier
+    - By code
+    - By name?
+
+## Non-Spatial Joins
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Non-spatial_join.png")
+```
+    
+
+
+
+## temp
+- examples of types of spatial analysis
+
+
