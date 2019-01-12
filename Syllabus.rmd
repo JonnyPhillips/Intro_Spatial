@@ -37,7 +37,7 @@ By the end of the course students will be able to :
 
 Throughout the course we will discuss a range of applied examples from the rapidly growing fields of political geography and spatial analysis. Half of each day will be spent discussing conceptual and statistical issues in the use of spatial data, and half in the lab practicing and experimenting with datasets. We will explore datasets from published papers, and also from the wealth of spatial data published in Brazil, including both vector and raster data formats. 
 
-The labs will use open-source software to ensure students can continue learning on their own beyond the course, including QGIS as a Geographic Information System and R for spatial statistics. The exercises in the afternoon are designed to be conducted *both* in QGIS and R to enhance both your intuition and programming skills. You will be provided with all the guidance and support materials needed to conduct the lab activities and do not need prior experience in any software or programming language.
+The labs will use open-source software to ensure students can continue learning on their own beyond the course, including QGIS as a Geographic Information System, GeoDa and R for spatial statistics. The exercises in the afternoon are designed to be conducted *both* in QGIS and R to enhance both your intuition and programming skills. You will be provided with all the guidance and support materials needed to conduct the lab activities and do not need prior experience in any software or programming language.
 
 # Pre-course Readings
 
@@ -108,9 +108,9 @@ We have learned how to visualize spatial relationships, but how do we measure th
 
 *Lecture Topics:* Distance matrix, Autocorrelation, Moran's I (nearest neighbour based, talk about contiguity), LISA, Measures of Segregation
 
-*Skills in QGIS and R:* Moran scatterplot, Moran's I, LISA, Segregation Measures
+*Skills in GeoDa and R:* Moran scatterplot, Moran's I, LISA, Segregation Measures
 
-*Lab Exercise:* How clustered are human developmnet measures across Brazil's municipalities? How segregated are racial groups from each other in São Paulo and Rio de Janeiro?
+*Lab Exercise:* How clustered is inequality across Brazil's municipalities? How segregated are racial groups from each other in São Paulo and Rio de Janeiro?
 
 *Readings:*
 

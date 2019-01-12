@@ -63,7 +63,7 @@ What patterns in our data do we want to measure?
 ## Measures of Central Tendency
 
 ```{r, out.width="750px", fig.cap="Centre of Mass of Brazilian Protests, 2013. Source: Bastos et al 2014", fig.align="center"}
-include_graphics("Centroid_protests.png")
+include_graphics("Centroid_protests.jpg")
 ```
 
 ## Measures of Central Tendency
@@ -74,7 +74,7 @@ include_graphics("Centroid_protests.png")
 ## Measures of Central Tendency
 
 ```{r, out.width="750px", fig.cap="Population and Mortality in South Asia, Shi et al 2018", fig.align="center"}
-include_graphics("Spatial_ellipse.png")
+include_graphics("Spatial_ellipse.jpg")
 ```
 
 ## Spatial Point Patterns

@@ -22,17 +22,22 @@ output: html_document
 knitr::opts_chunk$set(echo = F)
 library(knitr)
 ```
-<br> </br>
 
 **Morning**
 
-1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Slides_Day_4_v1.html)
-3. Demonstration of using QGIS for Measurement
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Slides_Day_4_v4.html)
+3. Demonstration of using Geoda and QGIS for Measurement
 4. Demonstration of using R for Measurement
 
 **Afternoon**
 
-1. Lab Question: 
+Lab Question: 
 
+1. [GeoDa+R] Compare one contiguity-based and one distance-based spatial weights matrix for Brazilian municipalities.
+2. [GeoDa+R] Calculate the Moran's I measure of spatial autocorrelation for the Theil measure of inequality in Brazilian municipalities. How do you interpret this number?
+3. [GeoDa+R] Produce a map of clusters of Local Indicators of Spatial Autocorrelation (LISA). Where is inequality clustered in Brazil? Where are the places of surprising low inequality?
+4. [QGIS+R] How racially segregated is Ceará state based on the census data?
 
 Files:
+[Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.shp)
+[Census data for Ceará State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Ceara_race.shp)

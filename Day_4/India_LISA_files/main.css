@@ -1,0 +1,679 @@
+* {
+	margin: 0;
+	padding: 0;	
+}
+html, body {
+	color: #fff;
+	font-family: Open Sans, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	height: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100%; 
+}
+img {
+	border: 0;
+}
+.hideIt {
+	display: none;	
+}
+#ad {
+	border: solid #000 1px;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: block;
+	height: 250px;/*100%;*/
+	left: 0;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	width: 300px;/*100%;*/
+}
+
+/* --  frame 1  -----------------------------------------------------------  */
+
+.bg {
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}  
+#bg1 {
+    background: url(smoke.jpg) no-repeat;
+	height: 310px;
+	left: -120px;
+    opacity: 1;
+	position: absolute;
+	top: -6px;
+    width: 465px;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	-ms-transition: all 0.1s;
+	transition: all 0.1s;
+}
+#bg1.in {
+    opacity: 1;
+}
+#bg1.out {
+    opacity: 0;
+	position: absolute;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}  
+#bg2 {
+    background: url(fogX.png) no-repeat;
+	height: 750px;
+	left: 0px;
+    opacity: 0.35;
+	position: absolute;
+	top: -100px;
+    width: 1110px;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+	-ms-transform: scale(2); 
+    -webkit-transform: scale(2); 
+    transform: scale(2);
+}
+#bg2.in {
+	left: 0px;
+	opacity: 0.35;
+	position: absolute;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+	-ms-transform: scale(2); 
+    -webkit-transform: scale(2); 
+    transform: scale(2);
+}
+#bg2.slide {
+	left: 400px;
+    opacity: 0.35;
+	position: absolute;
+	-webkit-transition: all 30s;
+	-moz-transition: all 30s;
+	-ms-transition: all 30s;
+	transition: all 30s;
+	-ms-transform: scale(2); 
+    -webkit-transform: scale(2); 
+    transform: scale(2);
+}
+
+.logo {
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	-ms-transition: all 0.1s;
+	transition: all 0.1s;
+}
+#logo {
+    background: url(PGR_White_bevel.svg) no-repeat;
+	height: 55px;
+	left: -28px;
+    opacity: 0;
+	position: absolute;
+	top: -7px;
+	width: 360px;
+	-ms-transform: scale(.33); 
+    -webkit-transform: scale(.33); 
+    transform: scale(.33);
+}
+#logo.in {
+	opacity: 1;
+	position: absolute;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3s;
+	-ms-transition: all 3s;
+	transition: all 3s;
+} 
+.copy {
+   	color: #fff;
+    font-family: Poppins,Open Sans,Arial,Verdana,sans-serif;
+	opacity: 0;
+	position: absolute;
+    -webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+}
+#copy1 {
+	background: url(GameOfSavings.svg) no-repeat;
+	height: 110px;
+	left: 21px;
+    opacity: 0;
+	position: absolute;
+	top: 68px;
+    width: 260px;	
+}
+#copy1.in {
+    opacity: 1;
+	position: absolute;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3s;
+	-ms-transition: all 3s;
+	transition: all 3s;
+}
+#copy1.out {
+    opacity: 0;
+	position: absolute;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+}
+
+/* --  frame 2  -----------------------------------------------------------  */
+
+.castle {
+	opacity: 0;
+	position: absolute;
+    -webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	-ms-transition: all 0.1s;
+	transition: all 0.1s;
+}
+#castle1 {
+    background: url(castle.png) no-repeat;
+	height: 200px;
+	left: 0px;
+    opacity: 0;
+	position: absolute;
+	top: 50px;
+    width: 300px;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+#castle1.in {
+    opacity: 1;
+	position: absolute;
+}
+#castle1.fade {
+    opacity: 0.5;
+	position: absolute;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+}
+
+.flo {
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+#flo1 {
+    background: url(floRoundShield.png) no-repeat;
+	bottom: -1px;
+	height: 220px;
+	left: -160px;   
+	position: absolute;
+    width: 150px;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1;
+	-ms-transition: all 1;
+	transition: all 1;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#flo1.in {
+	bottom: -1px;
+	left: 0px;
+    opacity: 1;
+	position: absolute;
+}
+#flo1.slide {
+	bottom: -18px;
+	left: -10px;
+    opacity: 1;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}
+
+.shimmer {
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+#shimmer {
+    background: url(shimmer.png) no-repeat;
+	bottom: -1px;
+	height: 220px;
+	left: 0px;   
+	opacity: 0;
+	position: absolute;
+    width: 150px;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3;
+	-ms-transition: all 3;
+	transition: all 3;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#shimmer.in {
+	bottom: -1px;
+	left: 0px;
+    opacity: 0.3;
+	position: absolute;
+}  
+#shimmer.slide {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.15;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}
+#shimmer.out {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.05;
+	position: absolute;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3;
+	-ms-transition: all 3;
+	transition: all 3;
+} 
+#shimmerP {
+    background: url(p.png) no-repeat;
+	bottom: -1px;
+	height: 220px;
+	left: 0px;   
+	opacity: 0;
+	position: absolute;
+    width: 150px;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3;
+	-ms-transition: all 3;
+	transition: all 3;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#shimmerP.in {
+	bottom: -1px;
+	left: 0px;
+    opacity: 0.30;
+	position: absolute;
+}  
+#shimmerP.slide {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.2;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}  
+#shimmerP.out {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.2;
+	position: absolute;
+	-webkit-transition: all 5s;
+	-moz-transition: all 5;
+	-ms-transition: all 5;
+	transition: all 5;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+} 
+#shimmerLeft {
+    background: url(shimmerLeft.png) no-repeat;
+	bottom: -1px;
+	height: 220px;
+	left: 0px;   
+	opacity: 0;
+	position: absolute;
+    width: 150px;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3;
+	-ms-transition: all 3;
+	transition: all 3;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#shimmerLeft.in {
+	bottom: -1px;
+	left: 0px;
+    opacity: 0.4;
+	position: absolute;
+} 
+#shimmerLeft.slide {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.3;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}  
+#shimmerLeft.out {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.1;
+	position: absolute;
+	-webkit-transition: all 5s;
+	-moz-transition: all 5;
+	-ms-transition: all 5;
+	transition: all 5;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}   
+#shimmerRight {
+    background: url(shimmerRight.png) no-repeat;
+	bottom: -1px;
+	height: 220px;
+	left: 0px;   
+	opacity: 0;
+	position: absolute;
+    width: 150px;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3;
+	-ms-transition: all 3;
+	transition: all 3;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#shimmerRight.in {
+	bottom: -1px;
+	left: 0px;
+    opacity: 0.3;
+	position: absolute;
+}
+#shimmerRight.slide {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.2;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}  
+#shimmerRight.out {
+	bottom: -18px;
+	left: -10px;
+    opacity: 0.1;
+	position: absolute;
+	-webkit-transition: all 5s;
+	-moz-transition: all 5;
+	-ms-transition: all 5;
+	transition: all 5;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+}  
+
+.twinkle {
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: all 5s;
+	-moz-transition: all 5s;
+	-ms-transition: all 5s;
+	transition: all 5s;
+}
+#twinkle5 {
+    background: url(twinkle5.png) no-repeat;
+	bottom: 68px;
+	height: 55px;
+	left: 25px;   
+	opacity: 0;
+	position: absolute;
+    width: 37px;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#twinkle5.in {
+    opacity: 0.7;
+	position: absolute;
+}  
+#twinkle5.out {
+    opacity: 0;
+	position: absolute;
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-ms-transition: all 0s;
+	transition: all 0s;
+} 
+#twinkle6 {
+    background: url(twinkle6.png) no-repeat;
+	bottom: 30px;
+	height: 55px;
+	left: 96px;   
+	opacity: 0;
+	position: absolute;
+    width: 37px;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#twinkle6.in {
+    opacity: 0.6;
+	position: absolute;
+}  
+#twinkle6.out {
+    opacity: 0;
+	position: absolute;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+	transition: all 2s;
+} 
+#twinkle7 {
+    background: url(twinkle7.png) no-repeat;
+	bottom: 74px;
+	height: 55px;
+	left: 85px;   
+	opacity: 0;
+	position: absolute;
+    width: 37px;
+	-ms-transform: scale(1.0); 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+#twinkle7.in {
+    opacity: 0.8;
+	position: absolute;
+}  
+#twinkle7.slide {
+	bottom: 55px;
+	left: 70px;
+    opacity: 0.7;
+	position: absolute;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+} 
+#twinkle7.out {
+	bottom: 55px;
+	left: 60px;
+    opacity: 0.6;
+	position: absolute;
+	-webkit-transition: all 3s;
+	-moz-transition: all 3s;
+	-ms-transition: all 3s;
+	transition: all 3s;
+	-ms-transform: scale(0.85); 
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+} 
+
+/* --  frame 3  -----------------------------------------------------------  */
+
+#copy2 {
+	background: url(SavingsAreHere.svg) no-repeat;
+	height: 30px;
+	left: 10px;
+    opacity: 0;
+	position: absolute;
+	top: 36px;
+    width: 280px;	
+	-webkit-transition: all 3s;
+	-moz-transition: all 3s;
+	-ms-transition: all 3s;
+	transition: all 3s;
+}
+#copy2.in {
+    opacity: 1;
+	position: absolute;
+}
+#copy3 {
+	color: #fff;
+    font-family: Open Sans, Arial, sans-serif;	
+	font-size: 20px;                    
+	font-weight: 500;
+	height: 100%;	
+	left: 57px;
+	line-height: 118%;
+	margin: 0 !important;
+    opacity: 0;
+	padding: 0 !important;
+	position: absolute;
+	text-align: center;
+	text-height: 24px;
+	top: 106px;
+	width: 100%;    	
+	-webkit-transition: all 3s;
+	-moz-transition: all 3s;
+	-ms-transition: all 3s;
+	transition: all 3s;
+}
+#copy3.in {
+    opacity: 1;
+	position: absolute;
+}
+
+#bgExitArea { width:100%; height:100%; position: absolute; top:0; left:0; opacity:0; cursor:pointer; }
+#bgExitArea a {display: none;}
+#cta {
+	bottom: 23px;
+	left: 58px;
+    margin: 0 auto;
+    opacity: 0;
+	position: absolute;
+	text-align: center;
+    width: 100%;
+    -webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	transition: all 1s;
+}
+#cta.in {
+	opacity: 1;	
+}
+#zipCode:focus, .button:focus {
+    outline: 0;
+}
+#zipCode {
+	border: 1px solid #ACACAC;
+	border-radius: 3px;
+	box-sizing: border-box;
+	color: #ACACAC;
+	display: inline-block;
+	font-family: Open Sans,Arial,Verdana,sans-serif;
+	font-size: .9em;
+    font-weight: 400;
+	line-height: normal;
+	margin: 0;
+	padding: 0 .8em;
+	text-align: center;
+	width: 100px;
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.button {
+    display: inline-block;
+}
+.button input, .button a {
+    border: none;
+    color: #333333;    
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Raleway", Arial, Verdana, sans-serif;
+    font-size: .8em;
+    font-weight: 600;
+    line-height: 1;
+    margin: 10px 0 0 -10px;
+    padding: 0.85em 2.3em;
+    text-align: center;
+    text-decoration: none;
+    -webkit-appearance: none;
+    border-radius: 100px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+    background-position: 0 0;
+    background:#fff;  /*
+	background: -webkit-linear-gradient(top,#fff 0%,#605b5a 100%);
+	background: -moz-linear-gradient(top,#fff 0%,#605b5a 100%);
+	background: linear-gradient(to bottom,#fff 0%,#605b5a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#2aa5fc', endColorstr='#0062cf'); */
+    background-size: auto 200%;
+}
+.button input:hover, .button a:hover {
+	background-position: 0 100% !important;
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-ms-transition: all 0s;
+	transition: all 0s;
+}
+#cta #zipCode, #cta .button {
+	height:	37px;
+}
+sup {
+    font-size: .8em;
+}
+
+
+

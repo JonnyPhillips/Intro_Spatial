@@ -1,0 +1,97 @@
+/* Banner
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function $(id) { return document.getElementById(id) };
+function q(name) {return document.getElementsByClassName(name) };
+var add = document.addEventListener ? 'addEventListener' : 'attachEvent';
+var st = setTimeout;
+
+var banner = (function() {
+	'use strict';
+	function Banner() {
+		//private variables
+		var b = $('banner');
+		
+		function onEnablerVisible() {
+			animateIt();
+			function animateIt() 
+			{
+				st(function() {
+					$("bg2").className = "in";
+					$("bg2").className = "slide";
+				}, 1),
+				st(function() {
+					$("bg1").className = "in";
+					$("bg").className = "in";				
+				}, 100),
+				st(function() {			
+					$("logo").className = "logo in";
+					$("copy1").className = "in";
+				}, 200),
+				st(function() {			
+					 $("copy1").className = "out";
+				}, 3000),
+				st(function() {	
+					$("castle1").className = "in";	
+					$("flo1").className = "in";	
+				}, 3100),
+				
+				st(function() {		
+					$("shimmer").className = "in";
+				}, 3700),
+				st(function() {		
+					$("twinkle5").className = "in";
+				}, 4000),
+				st(function() {	
+					$("shimmerP").className = "in";	
+					$("twinkle6").className = "in";
+				}, 4300),
+				st(function() {		
+					$("shimmerLeft").className = "in";
+				}, 4500),
+				st(function() {		
+		
+				}, 4600),
+				st(function() {		
+					$("shimmerRight").className = "in";
+				}, 4700),
+				st(function() {		
+					$("twinkle5").className = "out";
+				}, 5000),
+				st(function() {		
+					$("twinkle6").className = "out";
+					$("twinkle7").className = "in";			
+				}, 5200),
+				st(function() {
+					$("castle1").className = "fade";				  	 
+				}, 5500),
+				st(function() {
+					$("copy2").className = "in";
+					$("flo1").className = "slide";
+					$("shimmer").className = "slide";
+					$("shimmerP").className = "slide";
+					$("shimmerLeft").className = "slide";
+					$("shimmerRight").className = "slide";
+					$("twinkle7").className = "slide";
+				}, 5700),
+				
+				st(function() {
+					$("copy3").className = "in";
+					$("shimmer").className = "out";
+					$("shimmerP").className = "out";
+					$("twinkle7").className = "out";				  	 
+				}, 6100),			
+				st(function() {	
+					$("cta").className = "in";																	
+				}, 6500)
+
+			}  
+		}
+	
+		// privileged methods
+		this.init = function() {
+			onEnablerVisible();
+		};
+	}
+	return new Banner();
+})();

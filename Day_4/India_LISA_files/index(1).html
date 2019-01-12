@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://s0.2mdn.net/1384245/1525881634466/18D30008_GameOfSavings_300x250/index.html -->
+<html id="html" class=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=Edge"> 
+  
+  <title>Progressive Insurance</title>
+  <meta name="viewport" content="width=device-width">
+  <link href="./css" rel="stylesheet" type="text/css">
+  <link href="./css(1)" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./main.css">
+<script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script></head>
+
+<body onload="banner.init();">
+    <div id="ad" class="">
+        <div id="content"> 
+        
+<!-- -- add content ----------------------------------------- --> 
+
+		<div id="frame1"> 
+            <div class="in" id="bg1"></div>  
+            <div class="in" id="bg"></div> 
+            <div class="slide" id="bg2"></div>
+            <div id="logo" class="logo in"></div>
+            <div class="in" id="copy1"></div>
+        </div>
+
+        <div id="frame2">   
+            <div class="castle" id="castle1"></div>  
+            <div class="flo" id="flo1"></div>    
+            <div>
+                <div class="shimmer" id="shimmer"></div>
+                <div class="shimmer" id="shimmerP"></div>
+                <div class="shimmer" id="shimmerLeft"></div>
+                <div class="shimmer" id="shimmerRight"></div>
+                <div class="twinkle" id="twinkle5"></div>
+                <div class="twinkle" id="twinkle6"></div>
+                <div class="twinkle" id="twinkle7"></div>
+            </div>
+        </div>  
+
+        <div id="frame3">
+            <div class="bg" id="bg3"></div>
+            <div class="copy" id="copy2"></div> 
+            <div class="copy" id="copy3">You could <br>save $668 when <br>you switch</div> 
+
+        </div>     
+                  		                                      
+        <div id="bgExitArea"></div>
+        <div id="cta">
+            <div class="button" id="zipSubmit">
+                <a>Get a Quote</a>
+            </div>  
+        </div>
+
+<!-- -- end content ----------------------------------------- -->   
+
+        </div>
+    </div>
+    
+    <script src="./main.js.download"></script>
+    <script>
+        var clickTag = "{{PUB_CLICKTHROUGH.1}}";
+        document.getElementById('ad').addEventListener('click',function(){window.open(window.clickTag, "_blank");});
+    </script>
+
+
+
+<div id="icpbravoaccess_loaded"></div></body></html>

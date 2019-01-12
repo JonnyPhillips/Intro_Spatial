@@ -199,7 +199,16 @@ Limitations:
 
 - Data are not 'independent' for statistical analysis
 - Data are often aggregated, and the level of aggregation affects our conclusions (Modifiable Areal Unit Problem, Ecological Fallacy)
+- Distances of complex shapes are not 'fixed' (fractals)
 </div>
+
+## Merits of Spatial Analysis
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Britain_Coast.png")
+```
+
+
 
 ## Map Literacy
 
@@ -292,6 +301,16 @@ include_graphics("Legends.png")
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
 include_graphics("Death_Rates.png")
 ```
+
+## Map Literacy
+
+- Choosing the Indicator
+    - The most important! What precisley do we want to convey?
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Morbidity_Map.png")
+```
+
 
 ## Map Literacy
 

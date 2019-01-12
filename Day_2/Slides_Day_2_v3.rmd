@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Spatial Analysis"
-subtitle: "Day 1  - Spatial Operations"
+subtitle: "Day 2 - Spatial Operations"
 author: "Jonathan Phillips"
 date: "January, 2019"
 output:

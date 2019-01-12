@@ -22,7 +22,6 @@ output: html_document
 knitr::opts_chunk$set(echo = F)
 library(knitr)
 ```
-<br> </br>
 
 **Morning**
 
