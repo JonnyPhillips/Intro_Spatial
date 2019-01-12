@@ -40,12 +40,12 @@ Lab Questions:
 4. In the state of Acre (AC), which two social housing (MCMV) projects are closest to each other? Create a 20km buffer around each housing project.  
 5. Across Brazil, which municipality has the highest number of MCMV housing units (UH) in its territory? Create a map of the distribution of total housing units by municipality.
 
-Files:
+Files:  
 [Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/municipalities.shp)  
 [Indigenous Groups](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/BC250_Terra_Indigena_A.shp)  
 [Housing](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/MCMV.shp)  
 
 
-Step-by-Step Guide to Lab Analysis in QGIS
+[Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/1rWOsctdpUP5QymSo5bDvReJgceyGRFGYK8c7TzsV31Y/present?usp=sharing)
 
 Step-by-Step Guide to Lab Analysis in R

@@ -26,7 +26,7 @@ library(knitr)
 
 **Morning**
 
-1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Slides_Day_3_v3.html)
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Slides_Day_3_v4.html)
 3. Demonstration of using QGIS for Raster Data
 4. Demonstration of using R for Raster Data
 
@@ -34,9 +34,10 @@ library(knitr)
 
 Lab Questions: 
 
-How has the distribution of Brazil’s population changed over the last 50 years?   
-Which states have the greatest increases in population density?  
-
+1. How has the distribution of Brazil’s population changed over the last 50 years?
+2. Which states have seen the greatest increases in population density?  
 
 Files:
-
+[Population Density 2000](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/lacpopd00.tif/lacpopd00.tif)
+[Population Density 1960](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/lacpopd60.tif/lacpopd60.tif)
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/municipalities.shp)  

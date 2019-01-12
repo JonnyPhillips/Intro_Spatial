@@ -45,4 +45,4 @@ Files:
 
 [Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/1-YTmKeM7lO7z5sWXh1ygwBFXaDgNPPnCI6-pvNeB0bo/present?usp=sharing)
 
-[Step-by-Step Guide to Lab Analysis in R](https://docs.google.com/presentation/d/1l0-8sPjd2mnw6MIB22e-fhovUt_VIYmuGn3YMHcTLz0/present#slide=id.g4b9b0f0438_0_228)
+[Step-by-Step Guide to Lab Analysis in R](https://docs.google.com/presentation/d/1l0-8sPjd2mnw6MIB22e-fhovUt_VIYmuGn3YMHcTLz0/present?usp=sharing)
