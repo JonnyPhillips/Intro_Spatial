@@ -1,0 +1,51 @@
+---
+title: "Day 2 - Spatial Operations"
+#author: "Jonathan Phillips"
+#date: "May 13, 2017"
+output: html_document
+---
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(knitr)
+```
+<br> </br>
+
+**Morning**
+
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Slides_Day_2_v3.html)
+3. Demonstration of using QGIS for Spatial Operations
+4. Demonstration of using R for Spatial Operations
+
+**Afternoon**
+
+Lab Questions: 
+
+1. Produce a map showing the centroids of each municipality in just the state of Säo Paulo, and add the outer boundary of Säo Paulo state.   
+2. What is the mean Human Development Index of municipalities in each state of Brazil?  
+3. Produce a polygon/shapefile mapping the area of the municipality 'Gaucha do Norte' that is in the indigenous territory "Parque do Xingu".  
+4. In the state of Acre (AC), which two social housing (MCMV) projects are closest to each other? Create a 20km buffer around each housing project.  
+5. Across Brazil, which municipality has the highest number of MCMV housing units (UH) in its territory? Create a map of the distribution of total housing units by municipality.
+
+Files:
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/municipalities.shp)  
+[Indigenous Groups](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/BC250_Terra_Indigena_A.shp)  
+[Housing](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Data/MCMV.shp)  
+
+
+Step-by-Step Guide to Lab Analysis in QGIS
+
+Step-by-Step Guide to Lab Analysis in R

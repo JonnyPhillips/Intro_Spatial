@@ -1,0 +1,258 @@
+---
+title: "Introduction to Spatial Analysis"
+subtitle: "Day 3 - Raster Data"
+author: "Jonathan Phillips"
+date: "January, 2019"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    widescreen: yes
+    center: false
+    transition: none
+    reveal_options:
+      slideNumber: true
+  beamer_presentation:
+css: styles.css
+---
+
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(knitr)
+library(sf)
+library(leaflet)
+library(mapview)
+library(xtable)
+library(units)
+library(dismo)
+#world <- read_sf("world_shapefile/ne_50m_admin_0_countries.shp")
+```
+
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("raster.png")
+```
+
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Sentinel_Project.jpg")
+```
+
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("amazon.jpg")
+```
+
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("false_colour.jpg")
+```
+
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("nightlights.jpg")
+```
+
+## Raster Data
+
+- Altitude Data
+    - A Digital Elevation Model (DEM)
+
+[http://srtm.csi.cgiar.org/srtmdata/](http://srtm.csi.cgiar.org/srtmdata/)
+
+## Raster Data
+
+- Satellites/planes capture a range of data depending on their sensors
+    - Visible light, ultravoilet light, altitude, rain, gravity, etc.
+    - Each 'band' is a separate raster image
+    - One band = greyscale
+    - Multi-band = ex. Red, Green and Blue
+
+
+
+## Raster Data
+  
+- Not a shapefile, because any image file (TIFF, BMP, PNG, JPEG) can be used
+    - Don't think of colours, but numeric values for every pixel
+     
+- But we need to know *where* to map the pixels to the earth's surface
+    - So usually a 'GeoTIFF'
+    - Location defined by the upper-right pixel
+    - Projection is still vital!
+
+- Resolution determined by pixel size
+    - Google Maps is about 10m - 50cm resolution, depending on location
+    - Storage is a challenge
+     
+## Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("resolution.gif")
+```
+
+
+## Visualizing Raster Data
+
+- Raster data often makes no sense to the human eye
+    - May appear all black, or all white
+
+- We have to focus on the interesting range of the data to make a clear contrast
+    - QGIS tries to do this for us
+    - Or we can 'manipulate' it manually
+
+- 'Pseudocolour' is also useful for single band images
+
+## Visualizing Raster Data
+
+- Scale: -32768 to 32768
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_1.png")
+```
+
+## Visualizing Raster Data
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Histogram.png")
+```
+
+## Visualizing Raster Data
+
+- Scale: -5 to 1731
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_2.png")
+```
+
+## Visualizing Raster Data
+
+- Scale: -250 to 1380
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_3.png")
+```
+
+## Visualizing Raster Data
+
+- Pseudocolour
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_4.png")
+```
+
+## Visualizing Raster Data
+
+- From Altitude to Slope
+    - Digitel Elevation Model
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_Slope.png")
+```
+
+
+## Slope Analysis
+
+- Raster to Vector
+    - Contours
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_Contour.png")
+```
+
+## Raster Calculations
+
+- Which pixels (places) are above >1000m?
+    - Use a raster calculator
+    - Pixels which are 'TRUE' show up in white
+    
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("DEM_Highest.tif")
+```    
+
+## Raster Calculations
+
+- We can combine multiple rasters using basic maths
+    - +, -, *, /
+    
+- Pixel values in each cell are combined to create a new raster
+
+## Raster Calculations
+
+- Population change (as measured by night lights)
+
+```{r}
+popn_00 <- raster("../../../Data/lacpopd00.tif/lacpopd00.tif", crs='+init=EPSG:4326')
+popn_60 <- raster("../../../Data/lacpopd60.tif/lacpopd60.tif", crs='+init=EPSG:4326')
+```
+
+```{r}
+popn_60 %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=lacpopd60)) +
+  theme_minimal() +
+  scale_fill_gradient(low="white",high="red",na.value="white",trans="log", name="Population Density") +
+  coord_sf()
+```
+
+## Raster Calculations
+
+- Population change (as measured by night lights)
+
+```{r}
+popn_00 %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=lacpopd00)) +
+  theme_minimal() +
+  scale_fill_gradient(low="white",high="red",na.value="white",trans="log", name="Population Density") +
+  coord_sf()
+```
+
+## Raster Calculations
+
+- Population change (as measured by night lights)
+
+```{r}
+popn_change_pct <- (popn_00 - popn_60)/popn_60
+
+popn_change_pct %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=log(layer))) +
+  theme_minimal() +
+  scale_fill_gradient(low="white",high="red", na.value="white", trans="log", name="% Change in Population Density") +
+  coord_sf()
+```
+
+## Rasters and Vectors
+
+- To change the boundaries of the raster we can 'clip' it to a vector shapefile
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("popn_2000_clipped.png")
+```
+
+## Machine Learning with Raster Data
+
+[https://earthengine.google.com/](https://earthengine.google.com/)

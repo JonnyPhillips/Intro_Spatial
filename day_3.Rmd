@@ -1,0 +1,42 @@
+---
+title: "Day 3 - Raster Data"
+#author: "Jonathan Phillips"
+#date: "May 13, 2017"
+output: html_document
+---
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(knitr)
+```
+<br> </br>
+
+**Morning**
+
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Slides_Day_3_v3.html)
+3. Demonstration of using QGIS for Raster Data
+4. Demonstration of using R for Raster Data
+
+**Afternoon**
+
+Lab Questions: 
+
+How has the distribution of Brazil’s population changed over the last 50 years?   
+Which states have the greatest increases in population density?  
+
+
+Files:
+

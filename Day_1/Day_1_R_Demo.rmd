@@ -1,0 +1,69 @@
+---
+title: "Day 1 R - Intro to Using R for Spatial Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F, info=F)
+```
+
+## Nigeria Maps
+
+```{r}
+library(tidyverse)
+library(sf)
+library(ggsn)
+```
+
+Map of State Area
+
+```{r}
+States <- read_sf("Data/Nigeria/States.shp")
+
+States %>% ggplot() + 
+  geom_sf(aes(fill=Shape_Area)) +
+  theme_minimal() +
+  coord_sf(datum=NA) +
+  scale_fill_continuous(low="white",high="blue")
+```
+
+```{r}
+NHDS <- read_csv("Data/Nigeria/NDHS 2008 data by State completed.csv")
+
+States <- States %>% left_join(NHDS,by="admin1Pcod")
+```
+
+Map of Net Attendance Rate in Schools
+
+```{r}
+Map1 <- States %>% ggplot() + 
+  geom_sf(aes(fill=Net_Attendance)) +
+  theme_minimal() +
+  coord_sf(datum=NA) +
+  scale_fill_continuous(low="white",high="blue")
+Map1
+```
+
+Map of Net Attendance Rate in Schools and Dual Carriageway Roads
+
+```{r}
+roads <- read_sf("Data/Nigeria/Dual Carriageway.shp")
+
+Map2 <- Map1 + geom_sf(data=roads, lwd=2, col="green")
+Map2
+```
+
+Map of Net Attendance Rate in Schools, Dual Carriageway Roads and Schools
+
+```{r}
+clinics <- read_sf("Data/Nigeria/Clinics.shp")
+
+Map3 <- Map2 + geom_sf(data=clinics)
+Map3
+```
+
+```{r}
+Map3 + ggsn::scalebar(data=States,location="bottomright",dist=200,dd2km=T) +
+  north(data=States,location="topleft")
+```
+

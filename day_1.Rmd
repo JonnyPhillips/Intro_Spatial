@@ -28,18 +28,21 @@ library(knitr)
 
 1. Introduction to the Course
 2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v6.html)
-3. Intro to using QGIS for Spatial Analysis
-4. Intro to using R for Spatial Analysis
+3. Demonstration of using QGIS for Spatial Datasets
+4. Demonstration of using R for Spatial Datasets
 
 **Afternoon**
 
-1. Lab Question: 
-How did the 2014 second-round presidential result vary across Brazilian municipalities? 
-Which municipalities had the most extreme results? 
-How can we map the results?
+Lab Questions: 
+
+1. Merge the shapefile of Brazilian municipalities with the 2014 second-round Presidential results for Dilma Rousseff.  
+2. Produce a clear and professional map of the distribution of vote share, colouring each municipality by the distribution of Dilma's vote share.  
+3. Which municipalities had the most extreme results?   
 
 Files:
-[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Data/municipalities.shp)
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Data/municipalities.shp)  
 [Presidential Election Results](https://jonnyphillips.github.io/Intro_Spatial/Data/Pres_election_2014.csv)
 
-[Step-by-Step Guide to QGIS Analysis](https://docs.google.com/presentation/d/1-YTmKeM7lO7z5sWXh1ygwBFXaDgNPPnCI6-pvNeB0bo/present?usp=sharing)
+[Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/1-YTmKeM7lO7z5sWXh1ygwBFXaDgNPPnCI6-pvNeB0bo/present?usp=sharing)
+
+[Step-by-Step Guide to Lab Analysis in R](https://docs.google.com/presentation/d/1l0-8sPjd2mnw6MIB22e-fhovUt_VIYmuGn3YMHcTLz0/present#slide=id.g4b9b0f0438_0_228)

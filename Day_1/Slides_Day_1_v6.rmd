@@ -457,6 +457,10 @@ include_graphics("Projections.png")
 
 ## Locations in Space
 
+[Comparing Projections](https://map-projections.net/compare.php?p1=albers-equal-area-conic&p2=cm-equidistant-conic&sps=1)
+
+## Locations in Space
+
 - Projections are less distorted if they are localized to one part of the earth
     - So we choose a projection based on the extent of our analysis/map
 
@@ -488,6 +492,7 @@ Chua / UTM zone 23S (Distrito Federal) | Projected | 4071
     - **Important:** ALL data in the analysis must use the same CRS
     - That means sometimes we have to transform from one coordinate system to another
     - For projections, do you want to convey shape, area or distance accurately?
+
     
 ## Georeferencing
 

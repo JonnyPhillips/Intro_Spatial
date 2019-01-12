@@ -1,0 +1,38 @@
+---
+title: "Day 4 - Measurement"
+#author: "Jonathan Phillips"
+#date: "May 13, 2017"
+output: html_document
+---
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(knitr)
+```
+<br> </br>
+
+**Morning**
+
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Slides_Day_4_v1.html)
+3. Demonstration of using QGIS for Measurement
+4. Demonstration of using R for Measurement
+
+**Afternoon**
+
+1. Lab Question: 
+
+
+Files:
