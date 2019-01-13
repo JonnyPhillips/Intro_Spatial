@@ -33,6 +33,12 @@ library(knitr)
 
 Lab Questions: 
 
+Your task in the lab sessions is to produce **TWO** outputs answering the same questions:
+
+a. From your analysis in QGIS, a Word document containing the answers to the questions below, including any maps pasted as images.
+b. From your analysis in R, A HTML document produced directly from your analysis.
+
+
 1. Produce a map showing the centroids of each municipality in just the state of Säo Paulo, and add the outer boundary of Säo Paulo state.   
 2. What is the mean Human Development Index of municipalities in each state of Brazil?  
 3. Produce a polygon/shapefile mapping the area of the municipality 'Gaucha do Norte' that is in the indigenous territory "Parque do Xingu".  

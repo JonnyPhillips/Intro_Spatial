@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Spatial Analysis"
-subtitle: "Day 1  -Concepts and Datasets"
+subtitle: "Day 1 - Concepts and Datasets"
 author: "Jonathan Phillips"
 date: "January, 2019"
 output:
@@ -61,7 +61,7 @@ library(xtable)
 
 ## Geography
 
-- Tobler's First Law of Geography:
+Tobler's First Law of Geography:
 
 *"Everything is related to everything else, but near things are more related than distant things"*
 
@@ -73,7 +73,7 @@ library(xtable)
     - Euclidean
     - Great Circle
     - Manhattan
-    - Levensthtein
+    - Levensthein
     - Mahalanobis
     - Driving
     - Network
@@ -87,31 +87,15 @@ library(xtable)
     - More similar
     - More different (ex. dialing codes to avoid typing errors)
 
+<br> </br>
+
 - 'Related' does not mean one person 'causes' a similar effect on another
     - It may just be a common response to a similar environment
-    
-## Geography
-
-- [Map of spatial autocorr]
-    - points clustered
-    - values clustered
-    
-```{r, out.width="750px", fig.cap="", fig.align="center"}
-include_graphics("Germany_Votes_Income.png")
-```
-
+    - But interactions and spillovers are common
 
 ## Geography
 
-<iframe width="1600" height="700" src="https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA" allowfullscreen></iframe>
-
-## Geography
-
-<iframe width="1200" height="550" src="https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html" allowfullscreen></iframe>
-
-https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html
-
-## Geography
+- Locations of 'Events' could be 'near' to each other
 
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
 include_graphics("Snow_Cholera.png")
@@ -119,8 +103,27 @@ include_graphics("Snow_Cholera.png")
 
 ## Geography
 
-<iframe width="1200" height="550" src="http://especiais.g1.globo.com/politica/eleicoes/2018/mapa-da-apuracao-no-brasil-presidente/1-turno/" allowfullscreen></iframe>
+- Or *characteristics* of locations could be 'near' to each other
 
+```{r, out.width="620px", fig.cap="", fig.align="center"}
+include_graphics("2018_vote.png")
+```
+
+## Geography
+
+- Multiple characteristics could also be 'near' to each other
+    
+```{r, out.width="1200px", fig.cap="", fig.align="center"}
+include_graphics("Germany_Votes_Income.png")
+```
+
+## Geography
+
+<iframe width="1600" height="700" src="https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA" allowfullscreen></iframe>
+
+## Geography
+
+<iframe width="1600" height="700" src="https://demographics.virginia.edu/DotMap/" allowfullscreen></iframe>
 
 ## Geography
 
@@ -142,11 +145,11 @@ include_graphics("Snow_Cholera.png")
     - We can draw maps of them
     - But the conclusion does not depend on the *locations* of the units
     
-Non-spatial Question    | Spatial Question
+Non-spatial Question    | Question Requiring Spatial Analysis
 ------------------------|---------------------
-Which state in Brazil is richest? (DF) | Where in Brazil are states richest? (Southeast)
 How many countries have had cases of ebola? (11) | Which part of Africa was affected by ebola (West and Central)?
 What is the population of the USA? (~325m) | How many people live West of the Mississippi? (~136m)
+Which state in Brazil is richest? (DF) | Where in Brazil are states richest? (Southeast)
 
 ## Geography
 
@@ -308,7 +311,7 @@ include_graphics("Death_Rates.png")
     - The most important! What precisley do we want to convey?
 
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
-include_graphics("Morbidity_Map.png")
+include_graphics("Morbidity_Map.jpg")
 ```
 
 

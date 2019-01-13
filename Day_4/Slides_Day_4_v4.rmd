@@ -334,7 +334,7 @@ include_graphics("Jewish_E_London.png")
 
 ## Spatial Segregation
 
-[NYC Segregation, NY Times](https://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html)
+[NYC Segregation, NY Times](https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA)
 
 [US Segregation, Washington Post](https://www.washingtonpost.com/graphics/2018/national/segregation-us-cities/?noredirect=on&utm_term=.e15de5bd71ba)
 

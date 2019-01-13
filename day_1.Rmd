@@ -26,22 +26,27 @@ library(knitr)
 **Morning**
 
 1. Introduction to the Course
-2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v6.html)
+2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v7.html)
 3. Demonstration of using QGIS for Spatial Datasets
 4. Demonstration of using R for Spatial Datasets
 
 **Afternoon**
 
+Your task in the lab sessions is to produce **TWO** outputs answering the same questions:
+
+a. From your analysis in QGIS, a Word document containing the answers to the questions below, including any maps pasted as images.
+b. From your analysis in R, A HTML document produced directly from your analysis.
+
 Lab Questions: 
 
 1. Merge the shapefile of Brazilian municipalities with the 2014 second-round Presidential results for Dilma Rousseff.  
-2. Produce a clear and professional map of the distribution of vote share, colouring each municipality by the distribution of Dilma's vote share.  
+2. Produce a clear and professional map of the distribution of vote share, colouring each municipality by Dilma's vote share.  
 3. Which municipalities had the most extreme results?   
 
 Files:
 [Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Data/municipalities.shp)  
 [Presidential Election Results](https://jonnyphillips.github.io/Intro_Spatial/Data/Pres_election_2014.csv)
 
-[Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/1-YTmKeM7lO7z5sWXh1ygwBFXaDgNPPnCI6-pvNeB0bo/present?usp=sharing)
+[Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/18ISavxqFdPsIBdeCPtG4iJyYw2XZn-HY9lVc2tHIA2U/present?usp=sharing)
 
-[Step-by-Step Guide to Lab Analysis in R](https://docs.google.com/presentation/d/1l0-8sPjd2mnw6MIB22e-fhovUt_VIYmuGn3YMHcTLz0/present?usp=sharing)
+[Step-by-Step Guide to Lab Analysis in R](https://docs.google.com/presentation/d/1n8mvUi27C2eXkj3Rk3HUsxb20Sjcf9cBZMuD9vZghMU/present?usp=sharing)

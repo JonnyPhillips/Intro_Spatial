@@ -31,6 +31,11 @@ library(knitr)
 
 **Afternoon**
 
+Your task in the lab sessions is to produce **TWO** outputs answering the same questions:
+
+a. From your analysis in QGIS, a Word document containing the answers to the questions below, including any maps pasted as images.
+b. From your analysis in R, A HTML document produced directly from your analysis.
+
 Lab Questions: 
 
 

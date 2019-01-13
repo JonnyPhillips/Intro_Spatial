@@ -1,0 +1,61 @@
+---
+title: "Day 2 R Demonstration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F, info=F)
+```
+
+## Nigeria Maps
+
+```{r}
+library(tidyverse)
+library(sf)
+library(raster)
+library(spatialEco)
+```
+
+Land Use in Lagos, Nigeria, 2005 and 2011
+
+```{r}
+Lagos_2005 <- raster("../../../Demos/Day 3/Lagos_2005_lores.tif")
+Lagos_2011 <- raster("../../../Demos/Day 3/Lagos_2011_lores.tif")
+
+Lagos_2005 %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=Lagos_2005_land_use_lores)) +
+  theme_minimal()
+
+Lagos_2011 %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=Lagos_2011_land_use_lores)) +
+  theme_minimal()
+```
+
+Land Use Change in Lagos, Nigeria, 2005-11
+
+```{r}
+Lagos_Diff <- Lagos_2011 - Lagos_2005
+
+Lagos_Diff %>% as("SpatialPixelsDataFrame") %>% 
+  as.data.frame() %>% 
+  ggplot() + 
+  geom_tile(aes(x=x,y=y, fill=layer )) +
+  theme_minimal() + 
+  scale_fill_gradient2(low="purple",high="green",mid="white",midpoint=0)
+
+```
+
+Land Use Change by Local Government, Lagos, Nigeria
+
+```{r}
+Lagos_LGAs <- read_sf("../../../Demos/Day 3/Lagos_LGAs.shp") %>% st_transform(32631)
+
+zonal <- Lagos_LGAs %>% as("Spatial") %>% 
+  zonal.stats(Lagos_Diff,stat=function(x) {mean(x)})
+zonal
+```
+

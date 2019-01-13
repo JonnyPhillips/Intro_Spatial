@@ -186,7 +186,7 @@ include_graphics("DEM_Contour.png")
     - Pixels which are 'TRUE' show up in white
     
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
-include_graphics("DEM_Highest.tif")
+include_graphics("strm_above_1000.png")
 ```    
 
 ## Raster Calculations
@@ -250,8 +250,45 @@ popn_change_pct %>% as("SpatialPixelsDataFrame") %>%
 - To change the boundaries of the raster we can 'clip' it to a vector shapefile
 
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("popn_1960.png")
+```
+
+## Rasters and Vectors
+
+- To change the boundaries of the raster we can 'clip' it to a vector shapefile
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
 include_graphics("popn_2000_clipped.png")
 ```
+
+## Rasters and Vectors
+
+- Sometimes the information in a raster is *too* detailed
+- We can simplify by averaging the raster values according to specific polygons
+    - Average altitude in each province
+    - Average income by neighbourhood
+    - Average rainfall by country
+    
+- These are called 'Zonal Statistics'
+    - We can calculate lots of different statistics
+    
+## Rasters and Vectors
+
+- To change the boundaries of the raster we can 'clip' it to a vector shapefile
+
+```{r, out.width="750px", fig.cap="", fig.align="center"}
+include_graphics("Rain_by_country.png")
+```
+
+## Rasters and Vectors
+
+Country     | Average Rainfall (mm/day)
+------------|------------------------
+Malaysia    | 8mm
+Indonesia   | 12mm
+Philippines | 4mm
+Thailand    | 2mm
+Singapore   | 5mm
 
 ## Machine Learning with Raster Data
 

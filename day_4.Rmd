@@ -31,6 +31,11 @@ library(knitr)
 
 **Afternoon**
 
+Your task in the lab sessions is to produce **TWO** outputs answering the same questions:
+
+a. From your analysis in QGIS, a Word document containing the answers to the questions below, including any maps pasted as images.
+b. From your analysis in R, A HTML document produced directly from your analysis.
+
 Lab Question: 
 
 1. [GeoDa+R] Compare one contiguity-based and one distance-based spatial weights matrix for Brazilian municipalities.
@@ -39,5 +44,5 @@ Lab Question:
 4. [QGIS+R] How racially segregated is Ceará state based on the census data?
 
 Files:
-[Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.shp)
+[Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.shp)  
 [Census data for Ceará State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Ceara_race.shp)

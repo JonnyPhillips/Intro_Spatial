@@ -1,0 +1,90 @@
+---
+title: "Day 2 R Demonstration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F, info=F)
+```
+
+## Nigeria Maps
+
+```{r}
+library(tidyverse)
+library(sf)
+```
+
+Centroids of Nigerian states
+
+```{r}
+States <- read_sf("Data/Nigeria/States.shp")
+
+States <- States %>% st_transform(26392)
+
+States_centroids <- States %>% st_centroid()
+
+States_centroids %>% ggplot() +
+  geom_sf() +
+  theme_classic()
+
+States_centroids %>% st_distance()
+```
+
+100km buffer around Nigerian state centroids
+
+```{r}
+States_buffer <- States_centroids %>% st_buffer(100000)
+
+States_buffer %>% ggplot() +
+  geom_sf() +
+  theme_classic()
+
+```
+
+Dissolve states to regions
+
+```{r}
+Regions <- States %>% group_by(Region) %>% dplyr::summarize()
+
+Regions %>% ggplot() +
+  geom_sf() +
+  theme_classic()
+```
+
+Intersection between Kebbi State and Waterbodies
+
+```{r}
+Kebbi <- States %>% filter(admin1Name=="Kebbi")
+
+Water <- read_sf("Data/Nigeria/Waterbody.shp") %>% st_transform(26392)
+
+Kebbi_Water <- Kebbi %>% st_intersection(Water)
+
+Kebbi_Water %>% ggplot() + 
+  geom_sf(fill="red") + 
+  theme_classic() +
+  geom_sf(data=Kebbi, fill="green", alpha=0.2, col=NA) +
+  geom_sf(data=Water, fill="blue", alpha=0.2, col=NA)
+```
+
+Number of Clinics per State
+
+```{r}
+Clinics <- read_sf("Data/Nigeria/Clinics.shp") %>% st_transform(26392) %>% 
+  sample_n(100)
+
+State_Clinics <- States %>% st_join(Clinics) #Each row is a clinic but with state information too.
+
+State_Clinics %>% st_set_geometry(NULL) %>%
+  group_by(admin1Name) %>% 
+  count()
+```
+
+[Skip?] Average Characteristics
+
+```{r}
+State_Clinics %>% st_set_geometry(NULL) %>%
+  group_by(admin1Name) %>% 
+  dplyr::summarize(Mean_ID=mean(OBJECTID,na.rm=T))
+  ```
+
