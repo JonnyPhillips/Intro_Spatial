@@ -44,7 +44,7 @@ Lab Questions:
 3. Which municipalities had the most extreme results?   
 
 Files:
-[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Data/municipalities.shp)  
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Data/municipalities.zip)  
 [Presidential Election Results](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Data/Pres_election_2014.csv)
 
 [Step-by-Step Guide to Lab Analysis in QGIS](https://docs.google.com/presentation/d/18ISavxqFdPsIBdeCPtG4iJyYw2XZn-HY9lVc2tHIA2U/present?usp=sharing)
