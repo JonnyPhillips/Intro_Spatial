@@ -26,7 +26,7 @@ library(knitr)
 **Morning**
 
 1. Introduction to the Course
-2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v7.html)
+2. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_1/Slides_Day_1_v8.html)
 3. Demonstration of using QGIS for Spatial Datasets
 4. Demonstration of using R for Spatial Datasets
 
