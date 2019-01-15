@@ -1,0 +1,19 @@
+---
+title: "Brazil Voting Analysis"
+author: "JP"
+date: "January 14, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Big Title
+
+## Introduction
+
+This is my PhD. It's great.
+
+### Sub Sub title
+## Conclusion

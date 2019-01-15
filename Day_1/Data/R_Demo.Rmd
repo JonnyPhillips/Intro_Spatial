@@ -1,0 +1,37 @@
+---
+title: "Untitled"
+author: "JP"
+date: "January 14, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F)
+```
+
+## R Markdown
+```{r}
+library(sf)
+library(tidyverse)
+municipalities <- read_sf("municipalities.shp")
+```
+
+```{r}
+municipalities %>% ggplot() +
+  geom_sf(aes(fill=IDHM_10))
+```
+
+```{r}
+elections <- read_csv("Pres_election_2014.csv")
+
+mun_elections <- municipalities %>% left_join(elections,by="COD_MUN")
+
+```
+
+This is a map of vote share in Brazil...
+
+```{r}
+mun_elections %>% ggplot() +
+  geom_sf(aes(fill=Pct_Votes))
+```
+
