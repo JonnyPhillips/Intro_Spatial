@@ -25,7 +25,7 @@ library(knitr)
 
 **Morning**
 
-1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Slides_Day_2_v5.html)
+1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_2/Slides_Day_2_v6.html)
 3. Demonstration of using QGIS for Spatial Operations
 4. Demonstration of using R for Spatial Operations
 

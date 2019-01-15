@@ -31,7 +31,7 @@ css: styles.css
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning=F, message=F, error=F)
 library(tidyverse)
 library(knitr)
 library(sf)
@@ -294,9 +294,9 @@ municipalities %>% group_by(UF) %>% summarize() %>%
 **From Points to (fewer) Points - Clip/Subset**
 
 - Selecting only the points within a polygon
-    - Only the centroids within the polygons of São Paulo city or Campinas
+    - Only the centroids in the polygons of São Paulo city or Campinas
 
-```{r, warning=FALSE,fig.width=8,fig.height=4}
+```{r, warning=FALSE,fig.width=8,fig.height=2.8}
 SP_centroids <- SP %>% st_centroid() 
 
 SP_city <- SP %>% filter(COD_MUN==3550308|COD_MUN==3509502)
@@ -472,10 +472,4 @@ include_graphics("Bihar_6.png")
 
 ```{r, out.width="800px", fig.cap="", fig.align="center"}
 include_graphics("Bihar_7.png")
-```
-
-## Example of Spatial Operations
-
-```{r, out.width="800px", fig.cap="", fig.align="center"}
-include_graphics("Bihar_8.png")
 ```
