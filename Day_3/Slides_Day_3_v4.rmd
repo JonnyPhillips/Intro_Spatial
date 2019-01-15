@@ -44,7 +44,7 @@ library(dismo)
 ```
 
 ## Raster Data
-
+  
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
 include_graphics("raster.png")
 ```
@@ -57,13 +57,13 @@ include_graphics("Sentinel_Project.jpg")
 
 ## Raster Data
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1300px", fig.cap="", fig.align="center"}
 include_graphics("amazon.jpg")
 ```
 
 ## Raster Data
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1100px", fig.cap="", fig.align="center"}
 include_graphics("false_colour.jpg")
 ```
 
@@ -84,7 +84,7 @@ include_graphics("nightlights.jpg")
 
 - Satellites/planes capture a range of data depending on their sensors
     - Visible light, ultravoilet light, altitude, rain, gravity, etc.
-    - Each 'band' is a separate raster image
+    - Each 'band' is a separate raster image/layer
     - One band = greyscale
     - Multi-band = ex. Red, Green and Blue
 
@@ -97,7 +97,7 @@ include_graphics("nightlights.jpg")
      
 - But we need to know *where* to map the pixels to the earth's surface
     - So usually a 'GeoTIFF'
-    - Location defined by the upper-right pixel
+    - Location defined by the corner pixels
     - Projection is still vital!
 
 - Resolution determined by pixel size
@@ -126,13 +126,13 @@ include_graphics("resolution.gif")
 
 - Scale: -32768 to 32768
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="600px", fig.cap="", fig.align="center"}
 include_graphics("DEM_1.png")
 ```
 
 ## Visualizing Raster Data
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="700px", fig.cap="", fig.align="center"}
 include_graphics("Histogram.png")
 ```
 
@@ -140,7 +140,7 @@ include_graphics("Histogram.png")
 
 - Scale: -5 to 1731
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("DEM_2.png")
 ```
 
@@ -148,7 +148,7 @@ include_graphics("DEM_2.png")
 
 - Scale: -250 to 1380
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("DEM_3.png")
 ```
 
@@ -156,26 +156,24 @@ include_graphics("DEM_3.png")
 
 - Pseudocolour
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("DEM_4.png")
 ```
 
 ## Visualizing Raster Data
 
-- From Altitude to Slope
-    - Digitel Elevation Model
+- From Altitude to Slope: Digitel Elevation Model
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("DEM_Slope.png")
 ```
 
 
 ## Slope Analysis
 
-- Raster to Vector
-    - Contours
+- Raster to Vector: Contours
     
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("DEM_Contour.png")
 ```
 
@@ -185,7 +183,7 @@ include_graphics("DEM_Contour.png")
     - Use a raster calculator
     - Pixels which are 'TRUE' show up in white
     
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="550px", fig.cap="", fig.align="center"}
 include_graphics("strm_above_1000.png")
 ```    
 
@@ -249,7 +247,7 @@ popn_change_pct %>% as("SpatialPixelsDataFrame") %>%
 
 - To change the boundaries of the raster we can 'clip' it to a vector shapefile
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("popn_1960.png")
 ```
 
@@ -257,7 +255,7 @@ include_graphics("popn_1960.png")
 
 - To change the boundaries of the raster we can 'clip' it to a vector shapefile
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("popn_2000_clipped.png")
 ```
 
@@ -276,7 +274,7 @@ include_graphics("popn_2000_clipped.png")
 
 - To change the boundaries of the raster we can 'clip' it to a vector shapefile
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("Rain_by_country.png")
 ```
 

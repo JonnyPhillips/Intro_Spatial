@@ -45,5 +45,5 @@ Lab Questions:
 Files:
 [Population Density 2000](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/lacpopd00.tif/lacpopd00.tif)  
 [Population Density 1960](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/lacpopd60.tif/lacpopd60.tif)  
-[Brazil Outline](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/Br_Outline.shp)  
-[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/municipalities.shp)   
+[Brazil Outline](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/Br_Outline.zip)  
+[Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Data/municipalities.zip)   

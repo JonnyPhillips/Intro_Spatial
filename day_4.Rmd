@@ -44,5 +44,5 @@ Lab Question:
 4. [QGIS+R] How racially segregated is Ceará state based on the census data?
 
 Files:
-[Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.shp)  
-[Census data for Ceará State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Ceara_race.shp)
+[Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.zip)  
+[Census data for Ceará State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Ceara_race.zip)
