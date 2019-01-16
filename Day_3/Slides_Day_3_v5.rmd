@@ -76,9 +76,13 @@ include_graphics("nightlights.jpg")
 ## Raster Data
 
 - Altitude Data
-    - A Digital Elevation Model (DEM)
-
 [http://srtm.csi.cgiar.org/srtmdata/](http://srtm.csi.cgiar.org/srtmdata/)
+
+- Landsat (many different bands) Data
+[https://glovis.usgs.gov/app?fullscreen=0](https://glovis.usgs.gov/app?fullscreen=0)
+
+- Nightlights Data
+[http://sos.noaa.gov/datasets/Land/nightlights.html](http://sos.noaa.gov/datasets/Land/nightlights.html)
 
 ## Raster Data
 
