@@ -26,8 +26,8 @@ library(knitr)
 **Morning**
 
 1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_3/Slides_Day_3_v4.html)
-3. Demonstration of using QGIS for Raster Data
-4. Demonstration of using R for Raster Data
+3. [Demonstration of using QGIS for Raster Data](https://docs.google.com/presentation/d/1GJDfwgi__l14cC4_tpjKy_J24uhAaYtq1z5fAQHsZV0/present#slide=id.g4c7ab4222d_0_368)
+4. [Demonstration of using R for Raster Data](https://docs.google.com/presentation/d/1xF05gvjxshdqjPxd7vcnGIcP7SNcf-3EPsk7j9unpgM/present#slide=id.g4c790dbd3d_0_5)
 
 **Afternoon**
 

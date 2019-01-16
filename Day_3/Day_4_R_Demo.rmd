@@ -1,0 +1,84 @@
+---
+title: "Day 2 R Demonstration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F, info=F)
+```
+
+## Nigeria Maps
+
+```{r}
+library(tidyverse)
+library(sf)
+library(sp)
+library(spdep)
+
+moran_I_simple <- function(data,variable,neighbours){
+  out <- moran(data[,variable],
+      nb2listw(neighbours),
+      n=length(neighbours),
+      S0=Szero(nb2listw(neighbours)))
+  return(out)
+}
+
+Moran_I <- moran(municipalities_SP$IDHM_10,
+      nb2listw(neighbours_SP_dist),
+      n=length(neighbours_SP_dist),
+      S0=Szero(nb2listw(neighbours_SP_dist)))
+
+```
+
+```{r}
+Violence <- read_sf("../../../Demos/Day 4/Violence_Ng.shp") %>% st_transform(26392)
+
+LGAs <- read_sf("../../../Demos/Day 4/LGAs.shp") %>% st_transform(26392)
+
+LGAs %>% ggplot() +
+  geom_sf() +
+  geom_sf(data=Violence)
+```
+
+## Count of violence events in each Local Government
+
+```{r}
+LGAs_by_Violence <- LGAs %>% st_join(Violence)
+
+#LGAs_by_Violence <- LGAs %>% st_covers(Violence)
+
+LGAs_by_Violence_count <- LGAs_by_Violence %>%
+  group_by(LGA_Name) %>% 
+  count()
+
+```
+
+## Calculate weights matrices
+
+```{r}
+#Contiguity-based 
+
+neighbours_queen <- poly2nb(LGAs_by_Violence %>% as("Spatial"), queen=T)
+
+#Distance-based
+
+neighbours_distance <- LGAs_by_Violence %>% 
+  as("Spatial") %>% 
+  coordinates() %>% 
+  knearneigh(6) %>% 
+  knn2nb()
+
+# Neighbours Weighting
+neighbours_weights <- nb2listw(neighbours_distance,zero.policy=TRUE)
+
+```
+
+```{r}
+LGAs_by_Violence %>% moran_I_simple(deaths_civ,neighbours_weights)
+
+Moran_I <- moran(LGAs_by_Violence$deaths_civ,
+      nb2listw(neighbours_distance),
+      n=length(neighbours_distance),
+      S0=Szero(nb2listw(neighbours_distance)))
+```
+
