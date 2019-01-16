@@ -38,11 +38,16 @@ b. From your analysis in R, A HTML document produced directly from your analysis
 
 Lab Question: 
 
-1. [GeoDa+R] Compare one contiguity-based and one distance-based spatial weights matrix for Brazilian municipalities.
-2. [GeoDa+R] Calculate the Moran's I measure of spatial autocorrelation for the Theil measure of inequality in Brazilian municipalities. How do you interpret this number?
-3. [GeoDa+R] Produce a map of clusters of Local Indicators of Spatial Autocorrelation (LISA). Where is inequality clustered in Brazil? Where are the places of surprising low inequality?
-4. [QGIS+R] How racially segregated is Ceará state based on the census data?
+1. [Qgis] Join the Brazilian municipalities shapefile with the inequality (Theil) data
+2. [GeoDa+R] Compare one contiguity-based and one distance-based spatial weights matrix for Brazilian municipalities.
+3. [GeoDa+R] Calculate the Moran's I measure of spatial autocorrelation for the Theil measure of inequality in Brazilian municipalities. How do you interpret this number?
+4. [GeoDa+R] Produce a map of clusters of Local Indicators of Spatial Autocorrelation (LISA). Where is inequality clustered in Brazil? Where are the places of surprising low inequality?
+5. [R] How racially segregated is Ceará state based on the census data?
 
 Files:
+[Brazilian Municipalities Shapefile]()  
+[Inequality Data for Brazilian Municipalities]()  
+
 [Brazilian Municipal Inequality Data](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/muns_ineq.zip)  
 [Census data for Ceará State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Ceara_race.zip)
+[Moran's I Functions](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Functions.R)
