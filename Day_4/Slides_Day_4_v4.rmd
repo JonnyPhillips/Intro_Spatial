@@ -49,7 +49,7 @@ library(dismo)
 - What patterns in our data do we want to measure?  
     - Where events take place
     - Whether events are 'clustered' in space 
-    - Whether attitudes are 'clustered' together (given fixed locations)
+    - Whether *characteristics* are 'clustered' together (given fixed locations)
     - Whether groups are 'segregated' 
 
 ## Measures of Central Tendency
@@ -62,7 +62,7 @@ library(dismo)
 
 ## Measures of Central Tendency
 
-```{r, out.width="700px", fig.cap="Centre of Mass of Brazilian Protests, 2013. Source: Bastos et al 2014", fig.align="center"}
+```{r, out.width="650px", fig.cap="Centre of Mass of Brazilian Protests, 2013. Source: Bastos et al 2014", fig.align="center"}
 include_graphics("Centroid_protests.jpg")
 ```
 
@@ -93,10 +93,11 @@ include_graphics("Spatial_ellipse.jpg")
     - Each location has an equal probability of an event occurring (poisson model)
     - How far away is our distribution of points from this random distribution?
     - Simple statistical test
+        - Is p<0.05?
 
 ## Spatial Point Patterns
 
-```{r, out.width="720px", fig.cap="Location of Baghdad IEDs. Source: Anselin N.D.", fig.align="center"}
+```{r, out.width="600px", fig.cap="Location of Baghdad IEDs. Source: Anselin N.D.", fig.align="center"}
 include_graphics("Point_pattern.png")
 ```
 
@@ -109,7 +110,8 @@ include_graphics("Baghdad_IEDs.png")
 ## Clustering
 
 - In many cases, our spatial units are fixed - states, homes, lakes - but we want to know if the *characteristics* of these objects follow any spatial pattern
-    - First, we need to understand the 'space' we are working in
+    
+- First, we need to understand the 'space' we are working in
 
 ## Neighbours
 
@@ -117,6 +119,8 @@ include_graphics("Baghdad_IEDs.png")
 - Spatial analysis depends on some units being closer to each other than others
 
 - But when am I 'closer' to you?
+    - Full distance matrices are hard to calculate
+    - So we normally just identify your 'neighbour'
     - 'Neighbours' are other units that are considered 'closer'
     
 ## Neighbours
@@ -124,7 +128,7 @@ include_graphics("Baghdad_IEDs.png")
 1. Contiguity-based Neighbours
     - For polygons, contiguity means 'touching' 
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1200px", fig.cap="", fig.align="center"}
 include_graphics("Contiguity.gif")
 ```    
     
@@ -133,14 +137,14 @@ include_graphics("Contiguity.gif")
 1. Contiguity-based Neighbours
     - W = Spatial Weights Matrix (NxN)
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="850px", fig.cap="", fig.align="center"}
 include_graphics("Contiguity_Matrix.png")
 ```    
 
 ## Neighbours    
 
 2. Distance-based Neighbours
-    - Usually used to identify 'nearest-neighbour' or K nearest neighbours
+    - Usually used to identify 'nearest-neighbour' or $K$ nearest neighbours
     - Might not be 'close', but is 'closer'
 
 ```{r, out.width="750px", fig.cap="", fig.align="center"}
@@ -156,7 +160,7 @@ include_graphics("Nearest_neighbour.png")
 
 ## Clustering
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1200px", fig.cap="", fig.align="center"}
 include_graphics("Spatial_randomness.png")
 ```
 
@@ -166,19 +170,19 @@ include_graphics("Spatial_randomness.png")
     - Random data has clusters! Randomly!
     - Just not too many
 
-- Random is the **middle** of the scale
+- Random is more like the **middle** of the scale
     - Positive autocorrelation (clustering) on one end
     - Negative autocorrelation (dispersion) on the other end
 
 ## Clustering
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1100px", fig.cap="", fig.align="center"}
 include_graphics("positive_negative.jpg")
 ```
 
 ## Clustering
 
-```{r, out.width="750px", fig.cap="", fig.align="center"}
+```{r, out.width="1100px", fig.cap="", fig.align="center"}
 include_graphics("positive_negative_2.png")
 ```
 
@@ -188,7 +192,7 @@ include_graphics("positive_negative_2.png")
     - How do we prove it?
     - How much is it clustered?
 
-```{r, cache=T}
+```{r, cache=T, fig.height=6, fig.width=6}
 electoral <- read_csv("Data/Pres_election_2014.csv")
 muns <- read_sf("Data/municipalities.shp")
 
@@ -209,10 +213,10 @@ include_graphics("US_vote_share.png")
 - We need a measure of spatial autocorrelation (clustering)
     - When are two neighbours more likely to have similar characteristics than would be expected at random?
     
-- Moran's I measure of Spatial Autocorrelation
-    -1: Perfect negative autocorrelation
-     0: No autocorrelation at all (in large samples)
-     1: Perfect positive autocorrelation
+- Moran's I measure of Spatial Autocorrelation  
+    - -1: Perfect negative autocorrelation
+    -  0: No autocorrelation at all (in large samples)
+    -  1: Perfect positive autocorrelation
 
 ## Clustering
 
@@ -237,7 +241,7 @@ $W$ is the sum of the spatial weights
 ## Clustering
 
 - Moran's I:
-    - We can statistically test whether our value of Moran's I is higher or lower than we would expect if the characteristics was randomly distributed
+    - We can statistically test whether our value of Moran's I is higher or lower than we would expect if the characteristic was randomly distributed in space
 
 ```{r, out.width="600px", fig.cap="", fig.align="center"}
 include_graphics("Moran_Null.png")
@@ -271,18 +275,42 @@ moran_p <- moran.test(merged$Pct_Votes,weights,zero.policy=TRUE)
 
 ```
 
+## Clustering
+
+- Spatial Autocorrelation is complicated and occurs at different distances
+    - Not just among neighbours
+    - We can look at patterns of spatial autocorrelation at **multiple scales** by using a Variogram
+    
+- A variogram shows the average squared difference in characteristics (eg. vote share) at distance $d$ for many distances
+
+## Clustering
+
+- Variogram
+
+```{r, out.width="1000px", fig.cap="", fig.align="center"}
+include_graphics("Variogram.png")
+```
+
+## Clustering
+
+```{r, out.width="1000px", fig.cap="", fig.align="center"}
+include_graphics("Variogram_range.png")
+```
+
+
+
 ## Local Clustering
 
 - But Moran's I is a **global statistic**
     - It does not tell us *where* the clustering exists
     
-- We can use the calculations of Moran's I to categorize each unit
+- We can use the calculations of Moran's I to categorize *each unit*
 
 - Local Indicators of Spatial Autocorrelation (LISA)
     - A 'High' unit in a 'High' cluster
     - A 'Low' unit in a 'Low' cluster
-    - A 'High' unit in a 'Low' cluster
-    - A 'Low' unit in a 'High' cluster
+    - A 'High' unit in a 'Low' cluster -> Surprising!
+    - A 'Low' unit in a 'High' cluster -> Surprising!
 
 - We can also calculate the statistical significance of each unit's classification
     
@@ -313,7 +341,7 @@ dz4 %>% ggplot() + geom_sf(aes(fill=category), col=NA) +
 
 ## Local Clustering
 
-```{r, out.width="700px", fig.cap="Romao et al 2017", fig.align="center"}
+```{r, out.width="600px", fig.cap="Romao et al 2017", fig.align="center"}
 include_graphics("Europe_LISA.png")
 ```
 

@@ -5,16 +5,9 @@ library(sf)
 library(sp)
 library(spdep)
 
-
-moran_I_simple <- function(variable,neighbours){
-  out <- moran(variable,
-               nb2listw(neighbours_distance),
-               n=length(neighbours_distance),
-               S0=Szero(nb2listw(neighbours_distance)))
-  return(out)
-}
-
 lisa_classify <- function(x,neighbours){
+  
+  x <- x %>% mutate(Indicator=(Indicator-mean(Indicator))/sd(Indicator))
   
   lisa <- localmoran(x$Indicator,
                      nb2listw(neighbours),

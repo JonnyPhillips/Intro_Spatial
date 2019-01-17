@@ -1,0 +1,141 @@
+---
+title: "Day 4 R Demonstration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning=F, message=F, info=F)
+```
+
+## Nigeria Maps
+
+```{r}
+library(tidyverse)
+library(sf)
+library(sp)
+library(spdep)
+
+lisa_classify <- function(x,neighbours){
+  
+  x <- x %>% mutate(Indicator=(Indicator-mean(Indicator))/sd(Indicator))
+  
+  lisa <- localmoran(x$Indicator,
+                     nb2listw(neighbours),
+                     zero.policy=T)
+  
+  d <- x %>% bind_cols(lisa %>% as.data.frame())
+  
+  d <- d %>% mutate(Indicator_Lagged=lag.listw(nb2listw(neighbours),
+                                               d$Indicator,NAOK=TRUE))
+  
+  d <- d %>% rename("LISA_p"=`Pr(z > 0)`)
+  
+  d <- d %>% mutate(LISA_Sig=case_when(LISA_p<0.05~TRUE,
+                                       TRUE~NA),
+                    LISA_Cluster=case_when(LISA_p<0.05 & Indicator>=0 & Indicator_Lagged>=0~"High-High",
+                                           LISA_p<0.05 & Indicator>=0 & Indicator_Lagged<=0~"High-Low",
+                                           LISA_p<0.05 & Indicator<=0 & Indicator_Lagged>=0~"Low-High",
+                                           LISA_p<0.05 & Indicator<=0 & Indicator_Lagged<=0~"Low-Low",
+                                           TRUE~"Insignificant"))
+  return(d)
+}
+
+
+```
+
+```{r}
+Violence <- read_sf("../../../Demos/Day 4/Violence_Ng.shp") %>% st_transform(26392)
+
+LGAs <- read_sf("../../../Demos/Day 4/LGAs.shp") %>% st_transform(26392)
+
+LGAs %>% ggplot() +
+  geom_sf() +
+  geom_sf(data=Violence)
+```
+
+## Count of violence events in each Local Government
+
+```{r}
+LGAs_by_Violence <- LGAs %>% mutate(Num_Violence=lengths(st_covers(LGAs,Violence)))
+```
+
+## Calculate weights matrices
+
+```{r}
+#Contiguity-based 
+neighbours_queen <- poly2nb(LGAs_by_Violence %>% as("Spatial"), queen=T)
+neighbours_rook <- poly2nb(LGAs_by_Violence %>% as("Spatial"), queen=F)
+
+#Distance-based
+neighbours_distance <- LGAs_by_Violence %>% 
+  as("Spatial") %>% 
+  coordinates() %>% 
+  knearneigh(6) %>% 
+  knn2nb()
+
+# Neighbours Weighting
+neighbours_weights_distance <- nb2listw(neighbours_distance,zero.policy=TRUE)
+neighbours_weights_queen <- nb2listw(neighbours_queen,zero.policy=TRUE)
+
+```
+
+# Moran's I Calculation
+
+```{r}
+LGAs_by_Violence %>% pull(Num_Violence) %>% moran.test(neighbours_weights_distance)
+
+LGAs_by_Violence %>% pull(Num_Violence) %>% moran.test(neighbours_weights_queen)
+```
+
+# Moran's Scatterplot
+
+```{r}
+moran.plot(LGAs_by_Violence$Num_Violence,neighbours_weights_distance)
+```
+
+# LISA
+
+```{r}
+#Rename variable of interest to 'Indicator'
+LGAs_by_Violence <- LGAs_by_Violence %>% rename("Indicator"=Num_Violence)
+
+#Then use prepared function - show steps
+lisa_classified <- lisa_classify(LGAs_by_Violence,neighbours_distance)
+
+cols <- c("High-High" = "Dark Red", 
+          "High-Low" = "Light Red", 
+          "Low-High" = "Light Blue", 
+          "Low-Low" = "Dark Blue",
+          "Insignificant"="light grey")
+
+lisa_classified %>% ggplot() + 
+  geom_sf(aes(fill=LISA_Cluster),col="white") + 
+  theme_minimal() +
+  coord_sf(datum=NA) +
+  scale_color_brewer(palette="Accent",na.value="white") +
+  scale_fill_manual(values=cols)
+
+```
+
+## Segregation
+
+```{r}
+AC_race <- read_sf("../../../Demos/Day 4/AC_race.shp")
+
+AC_race %>% ggplot() + geom_sf(aes(fill=White))
+
+AC_race_long <- AC_race %>% gather(key="Race",value="Pct_Race",-Cnss_Ar,-geometry)
+
+AC_race_long %>% ggplot() + 
+  geom_sf(aes(fill=Pct_Race),col=NA) + 
+  facet_wrap(~Race) + 
+  theme_minimal() +
+  coord_sf(datum=NA) +
+  scale_fill_gradient(low="white",high="dark green",na.value="white")
+
+
+AC_race_data <- AC_race %>% dplyr::select(-Cnss_Ar) %>% st_set_geometry(NULL)
+seg_sp <- spseg(x=AC_race %>% as("Spatial"),data=AC_race_data)
+
+```
+

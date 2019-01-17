@@ -70,6 +70,7 @@ LGAs_by_Violence <- LGAs %>% mutate(Num_Violence=lengths(st_covers(LGAs,Violence
 ```{r}
 #Contiguity-based 
 neighbours_queen <- poly2nb(LGAs_by_Violence %>% as("Spatial"), queen=T)
+neighbours_rook <- poly2nb(LGAs_by_Violence %>% as("Spatial"), queen=F)
 
 #Distance-based
 
@@ -88,6 +89,8 @@ neighbours_weights <- nb2listw(neighbours_distance,zero.policy=TRUE)
 
 ```{r}
 LGAs_by_Violence %>% pull(Num_Violence) %>% moran_I_simple(neighbours_distance)
+
+moran.test(LGAs_by_Violence$Num_Violence,neighbours_weights)
 ```
 
 # Moran's Scatterplot
@@ -95,7 +98,6 @@ LGAs_by_Violence %>% pull(Num_Violence) %>% moran_I_simple(neighbours_distance)
 ```{r}
 moran.plot(LGAs_by_Violence$Num_Violence,
            nb2listw(neighbours_distance))
-
 ```
 
 # LISA
