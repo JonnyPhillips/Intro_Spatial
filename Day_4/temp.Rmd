@@ -1,0 +1,47 @@
+---
+title: "Untitled"
+author: "JP"
+date: "January 17, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(sf)
+muns <- read_sf("Data/municipalities.shp")
+ineq <- read_csv("Data/ineq_mun.csv")
+
+muns_ineq <- muns %>% left_join(ineq,by="COD_MUN")
+
+neighbours_distance <- muns_ineq %>% 
+  as("Spatial") %>% 
+  coordinates() %>% 
+  knearneigh(6) %>% 
+  knn2nb()
+
+neighbours_weights_distance <- nb2listw(neighbours_distance,zero.policy=TRUE)
+
+muns_ineq <- muns_ineq %>% rename("Indicator"=THEIL)
+
+#Then use prepared function - show steps
+lisa_classified <- lisa_classify(muns_ineq,neighbours_distance)
+
+cols <- c("High-High" = "Dark Red", 
+          "High-Low" = "Light Red", 
+          "Low-High" = "Light Blue", 
+          "Low-Low" = "Dark Blue",
+          "Insignificant"="light grey")
+
+lisa_classified %>% ggplot() + 
+  geom_sf(aes(fill=LISA_Cluster),col="white") + 
+  theme_minimal() +
+  coord_sf(datum=NA) +
+  scale_color_brewer(palette="Accent",na.value="white") +
+  scale_fill_manual(values=cols)
+
+```
+

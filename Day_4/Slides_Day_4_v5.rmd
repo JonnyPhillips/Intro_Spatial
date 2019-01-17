@@ -298,7 +298,7 @@ moran_p <- moran.test(merged$Pct_Votes,weights,zero.policy=TRUE)
 
 - Variogram
 
-```{r, out.width="900px", fig.cap="", fig.align="center"}
+```{r, out.width="850px", fig.cap="", fig.align="center"}
 include_graphics("Variogram.png")
 ```
 
@@ -373,13 +373,15 @@ include_graphics("Jewish_E_London.png")
 
 ## Spatial Segregation
 
-[NYC Segregation, NY Times](https://pudding.cool/2018/10/city_3d/?fbclid=IwAR3GQtk3MgbwW3jMTNauYkzI82riDbJ8VnpXEREwuj3FPTwq21LaiMgbOKA)
+<iframe width="1600" height="700" src="https://demographics.virginia.edu/DotMap/" allowfullscreen></iframe>
+
+## Spatial Segregation
 
 [US Segregation, Washington Post](https://www.washingtonpost.com/graphics/2018/national/segregation-us-cities/?noredirect=on&utm_term=.e15de5bd71ba)
 
 ## Spatial Segregation
 
-```{r, out.width="700px", fig.cap="", fig.align="center"}
+```{r, out.width="650px", fig.cap="", fig.align="center"}
 include_graphics("Clustering-isolation.png")
 ```
 
@@ -387,7 +389,7 @@ include_graphics("Clustering-isolation.png")
 
 - One approach is the Spatial Dissimilarity Index
     - A measure of evenness vs. clustering
-    - On average, how different is the composition of each unit's local neighbourhood to the composition of the entire region as a whole?
+    - On average, how *different* is the composition of each unit's local neighbourhood to the composition of the entire region as a whole?
 
 0: Evenness  
 1: Clustering (segregation)
@@ -417,9 +419,9 @@ $I = \sum_i (t_i)(1-t_i)$
 ## Spatial Segregation
 
 - Dissimilarity is a global measure
-    - But we can also measure local dissimilarity
+    - But we can also measure *local* dissimilarity
 
-```{r, out.width="600px", fig.cap="Local Spatial Dissimilarity Index", fig.align="center"}
+```{r, out.width="500px", fig.cap="Local Spatial Dissimilarity Index", fig.align="center"}
 include_graphics("Dissim_Cape_Town.jpg")
 ```
 
@@ -427,7 +429,7 @@ include_graphics("Dissim_Cape_Town.jpg")
 
 - Spatial Exposure: The average proportion of group $j$ in the neighbourhood of group $i$
 
-```{r, out.width="600px", fig.cap="Exposure of White to Coloured Population (https://complexsystemstheory.net/complexity-of-segregation/)", fig.align="center"}
+```{r, out.width="500px", fig.cap="Exposure of White to Coloured Population (https://complexsystemstheory.net/complexity-of-segregation/)", fig.align="center"}
 include_graphics("Exposure_Cape_Town.jpg")
 ```
 
@@ -436,3 +438,4 @@ include_graphics("Exposure_Cape_Town.jpg")
 - Segregation is complicated
     - It varies a lot depending on the **scale** at which you assess it
     - And how we define each unit's **neighbourhood**
+    - We need lots of different measures of segregation

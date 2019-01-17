@@ -40,7 +40,6 @@ lisa_classify <- function(x,neighbours){
   return(d)
 }
 
-
 ```
 
 ```{r}
@@ -74,8 +73,8 @@ neighbours_distance <- LGAs_by_Violence %>%
   knn2nb()
 
 # Neighbours Weighting
-neighbours_weights_distance <- nb2listw(neighbours_distance,zero.policy=TRUE)
 neighbours_weights_queen <- nb2listw(neighbours_queen,zero.policy=TRUE)
+neighbours_weights_distance <- nb2listw(neighbours_distance,zero.policy=TRUE)
 
 ```
 
