@@ -49,4 +49,4 @@ Files:
 [Inequality Data for Brazilian Municipalities](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/ineq_mun.csv)  
 [Moran's I Functions](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Functions.R)
 
-[Census data for Roraima State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/Roraima_race.zip)
+[Census data for Roraima State](https://jonnyphillips.github.io/Intro_Spatial/Day_4/Data/RO_race.zip)
