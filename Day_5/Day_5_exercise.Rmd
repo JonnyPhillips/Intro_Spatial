@@ -1,0 +1,53 @@
+---
+title: "Untitled"
+author: "JP"
+date: "January 17, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gerrymandering
+
+```{r}
+library(tidyverse)
+library(sf)
+
+Br_states <- read_sf("Data/Brazil_states.shp")
+
+Br_States <- Br_states %>% mutate(Area=st_area(.)/1000000,
+                     Perimeter=st_length(.)/1000,
+                     Polsby_Popper=4*pi*Area/Perimeter^2)
+
+#Most Compact
+Br_States %>% filter(Polsby_Popper==max(Polsby_Popper)) %>%
+  ggplot() + geom_sf() + 
+  theme_minimal()
+
+#Least Compact
+Br_States %>% filter(Polsby_Popper==min(Polsby_Popper)) %>%
+  ggplot() + geom_sf() + 
+  theme_minimal()
+
+```
+
+```{r}
+Br_muns <- read_sf("Data/municipalities.shp")
+Votes <- read_csv("Data/Pres_election_2014.csv")
+
+Br_muns_votes <- Br_muns %>% left_join(Votes,by="COD_MUN")
+
+Br_muns_votes %>% st_write("Data/Br_muns_votes.shp")
+
+Br_muns_votes <- read_sf("Data/Br_muns_votes.shp")
+
+?localmoran
+
+```
+
+```{r}
+
+```
+

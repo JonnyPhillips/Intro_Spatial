@@ -1,0 +1,68 @@
+---
+title: "Introduction to Spatial Analysis"
+subtitle: "Day 5 - Applications"
+author: "Jonathan Phillips"
+date: "January, 2019"
+output:
+  revealjs::revealjs_presentation:
+    incremental: yes
+    widescreen: yes
+    center: false
+    transition: none
+    reveal_options:
+      slideNumber: true
+  beamer_presentation:
+css: styles.css
+---
+
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=F, message=F, error=F)
+library(tidyverse)
+library(knitr)
+library(sf)
+library(leaflet)
+library(mapview)
+library(xtable)
+library(units)
+library(dismo)
+#world <- read_sf("world_shapefile/ne_50m_admin_0_countries.shp")
+```
+
+
+## Political Science and Spatial Analysis
+
+- Combining the methods we have learned helps you measure what it is you are interested in:
+    - Average location
+    - Clustered events
+    - Clustered characteristics
+    - Segregation
+
+## Political Science and Spatial Analysis
+
+
+
+## Political Science and Spatial Analysis
+
+1. Identifying Clustering
+    - Moran's I, LISA
+2. Correlating Spatial Relationships
+    - Bivariate Moran's I, spatial regression
+3. Measuring how one country affects its neighbours
+4. How natural geography affects politics
+5. How political borders affect modern politics
+

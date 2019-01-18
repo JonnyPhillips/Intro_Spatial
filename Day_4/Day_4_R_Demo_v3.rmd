@@ -14,6 +14,7 @@ library(tidyverse)
 library(sf)
 library(sp)
 library(spdep)
+library(seg)
 
 lisa_classify <- function(x,neighbours){
   
@@ -46,6 +47,7 @@ lisa_classify <- function(x,neighbours){
 Violence <- read_sf("../../../Demos/Day 4/Violence_Ng.shp") %>% st_transform(26392)
 
 LGAs <- read_sf("../../../Demos/Day 4/LGAs.shp") %>% st_transform(26392)
+
 
 LGAs %>% ggplot() +
   geom_sf() +
@@ -108,7 +110,7 @@ cols <- c("High-High" = "Dark Red",
           "Insignificant"="light grey")
 
 lisa_classified %>% ggplot() + 
-  geom_sf(aes(fill=LISA_Cluster),col="white") + 
+  geom_sf(aes(fill=LISA_Cluster, col=LISA_Sig)) + 
   theme_minimal() +
   coord_sf(datum=NA) +
   scale_color_brewer(palette="Accent",na.value="white") +
