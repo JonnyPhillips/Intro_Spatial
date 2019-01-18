@@ -26,8 +26,8 @@ library(knitr)
 **Morning**
 
 1. [Lecture](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Slides_Day_5_v4.html)
-3. Demonstration of using QGIS for Political Science Applications
-4. Demonstration of using R for Political Science Applications
+3. [Demonstration of using QGIS and Geoda for Political Science Applications](https://docs.google.com/presentation/d/1v41kgi4Z45Eo1yx_lwXE-VCzSa_k19acMSCJZGaIdg4/preesnt?usp=sharing)
+4. [Demonstration of using R for Political Science Applications](https://docs.google.com/presentation/d/1EPO6gaLVg0nNedrOavrZ__ioSCQes98DKLPVN1VudQc/present?usp=sharing)
 
 **Afternoon**
 
@@ -44,9 +44,9 @@ Lab Questions:
 
 Files:
 
-[Brazilian states](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Brazil_states.zip)
+[Brazilian states](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Brazil_states.zip)  
 [Brazilian Municipality Income and Voting](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Br_muns_votes.zip)
 
-[South America Population Density 2000](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/lacpopd00.tif/lacpopd00.zip)
-[Brazil Border Interior](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Br_Border_interior.zip)
+[South America Population Density 2000](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/lacpopd00.tif/lacpopd00.zip)  
+[Brazil Border Inland](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Br_Border_interior.zip)
 

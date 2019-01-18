@@ -46,11 +46,10 @@ library(dismo)
 
 ## Political Science and Spatial Analysis
 
-- Combining the methods we have learned helps you measure what it is you are interested in:
-    - Average location
-    - Clustered events
-    - Clustered characteristics
-    - Segregation
+- Combining the methods we have learned helps you answer new research questions:
+    1. Access/Build a spatial dataset
+    2. Conduct spatial operations to combine data
+    3. Measure spatial relationships
 
 ## Political Science and Spatial Analysis
 
@@ -59,7 +58,7 @@ library(dismo)
 2. Identifying Clustering
     - Moran's I, LISA
 2. Correlating Spatial Relationships
-    - Bivariate Moran's I, spatial regression
+    - Bivariate Moran's I, Spatial regression
 4. The Effects of Borders
     - Geographic Regression Discontinuity
 
@@ -77,8 +76,8 @@ library(dismo)
 ## Gerrymandering
 
 - Easier when politicians control the redistricting process
-    - When voters are easily identified by race (a census variable)
-    - When voters are clustered: They pack and crack themselves, eg. black voters in the USA
+    - When partisan voters are easily identified by race (a census variable)
+    - When voters are clustered: They pack and crack themselves, eg. black voters in the USA (Chen and Rodden 2010)
     - And because there is no 'correct' district shape: All maps have partisan effects
     
 ## Gerrymandering    
@@ -128,15 +127,15 @@ include_graphics("Polsby-Popper.png")
 
 ## Gerrymandering    
 
-- Gerrymandering got better, but got worse since the 1970s
+- Gerrymandering was becoming less frequent, but got worse since the 1970s
 
-```{r, out.width="900px", fig.cap="", fig.align="center"}
+```{r, out.width="850px", fig.cap="", fig.align="center"}
 include_graphics("Compact_Year.png")
 ```
 
 ## Gerrymandering    
 
-- The Efficiency Gap is another test
+- The Efficiency Gap is another (non-spatial) test
     - How many votes did each party waste?
     - Sum each party's votes in losing districts plus votes above 50% in winning districts
     - Find the difference between parties
@@ -144,15 +143,15 @@ include_graphics("Compact_Year.png")
 <br> </br>    
     
 - We can also create lots of random maps and measure bias
-    - Compare to reality
+    - Then compare: How extreme is reality?
 
 ## Spatial Correlations
 
 - Moran's I helped us measure the clustering of a variable *with itself*
-    - If **income** is high in unit $i$ is **income** also high in the neighbours of $i$?
+    - If **income** is high in unit $i$, is **income** also high in the neighbours of $i$?
     
 - But political science questions are often about the relationship *between* variables
-    - If **income** is high in unit $i$ is **crime** also high in the neighbours of $i$?
+    - If **income** is high in unit $i$, is **crime** also high in the neighbours of $i$?
 
 ## Spatial Correlations
 
@@ -203,7 +202,9 @@ include_graphics("Bivariate_Moran_Scatter.png")
 
 ## Border Effects
 
-```{r, out.width="550px", fig.cap="", fig.align="center"}
+- Do political adverts change voter turnout?
+
+```{r, out.width="500px", fig.cap="", fig.align="center"}
 include_graphics("Media_Markets.png")
 ```
 
@@ -228,14 +229,14 @@ include_graphics("Languages.png")
 - Bihar-Jharkhand Border and Trust in the Civil Service:
 
 ```{r, out.width="900px", out.height="", fig.cap="", fig.align="center"}
-include_graphics("rddmap_trust_civil_service-1-1.png")
+include_graphics("rdd_map_trust_civil_service-1-1.png")
 ```
   
 ## Border Effects
 
 - Regression estimate:
 
-$$y_i = \alpha + \beta Border_i + \gamma \text{Distance to Border}_i + \epsilon_i$$
+$$y_i = \alpha + \beta \text{Border}_i + \gamma \text{Distance to Border}_i + \epsilon_i$$
 
 - We care about the direction and significance of $\beta$
     - The effect of the border after controlling for gradual changes across space
@@ -255,5 +256,16 @@ $$y_i = \alpha + \beta Border_i + f(x + y + x^2 + y^2 + x^3 + y^3 + x^4 + y^4 + 
 ## Border Effects
 
 - But remember to ask: why is the border located there?
+    - Are people actually the same either side of the border? (Balance test)
     - And can't people migrate?
+
+## Summary
+
+1. Spatial analysis is about 'nearer' things being more 'related'
+2. Use consistent, appropriate coordinate reference systems!
+4. Spatial operations allow you to create new variables and measures
+5. Spatial autocorrelation as a threat vs. an opportunity
+6. Scale affects our results (eg. MAUP), so try and analyze at lets of scales
+7. Maps mislead; understand your data!
+
 
