@@ -38,7 +38,7 @@ b. From your analysis in R, A HTML document produced directly from your analysis
 
 Lab Questions: 
 
-1. [QGIS] Which Brazilian state is the most compact according to the Polsby-Popper Test? Which is the least compact?
+1. [QGIS+R] Which Brazilian state is the most compact according to the Polsby-Popper Test? Which is the least compact?
 2. [GEODA] What is the Bivariate Moran's I between Voting (Pct_Votes) and Income (PIB_PER) in Brazilian municipalities?
 3. [R] Is the population density higher on the Brazil side of the international border with other Latin American countries?
 
