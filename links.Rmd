@@ -1,0 +1,81 @@
+---
+title: "Links and Data Sources"
+author: "Tainá Souza Pacheco"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Where to download the programs
+
+1. [R](https://cran.r-project.org/) choose your country mirror;
+2. [RStudio](https://www.rstudio.com/products/rstudio/download/) (it doesn't work if R is not installed on your computer)
+3. [Miktek for Latex (Use the 'Complete' Net Installer) - if you want to create PDFs from R Markdown and not just HTML](https://miktex.org/download)
+4. [QGIS](https://qgis.org/en/site/forusers/download.html)
+5. [Geoda](http://geodacenter.github.io/download.html)
+6. [Google Earth Pro](https://www.google.com/earth/download/gep/agree.html)
+
+# Spatial Brazilian Data Sources
+
+1. [IBGE geoftp](ftp://geoftp.ibge.gov.br/)
+2. [geosampa:](http://geosampa.prefeitura.sp.gov.br/PaginasPublicas/_SBC.aspx) for data from São Paulo city
+3. [data.rio:](http://www.data.rio/) for data for Rio de Janeiro city
+4. [ESIG - Recife:](http://www.recife.pe.gov.br/ESIG/) georreferencing information from Recife (PE)
+4. [Center for Metropolitan Studies (FFLCH - USP):](http://web.fflch.usp.br/centrodametropole/en/) an institution for advanced research in social sciences that investigates themes on the subject of inequalities and the formulation of public policies in contemporary metropolises;
+5. [Geological Survey of Brazil:](http://geosgb.cprm.gov.br/) many raster data
+6. [Meteorological National Institute:](http://www.inmet.gov.br/portal/index.php?r=bdmep/bdmep)
+
+# Global Spatial Data Sources
+
+1. [GADM Administrative Boundaries](https://gadm.org/)
+2. [Wikipedia Spatial Sources](https://en.wikipedia.org/wiki/List_of_GIS_data_sources)
+3. [Harvard Geospatial Library](http://hgl.harvard.edu:8080/opengeoportal/)
+4. [US Spatial Data](https://www.geoplatform.gov/)
+5. [EU Data](http://inspire-geoportal.ec.europa.eu/)
+
+# Raster Data
+
+1. [SRTM Altitude Data](http://srtm.csi.cgiar.org/srtmdata/)
+2. [Landsat Data](https://glovis.usgs.gov/)
+3. [NOAA Nightlights Data](https://governmentshutdown.noaa.gov/)
+4. [Google Earth Engine](https://explorer.earthengine.google.com/#workspace)
+5. [Collect Earth](http://collect.earth/home)
+
+# Extras
+1. Create a points shapefile from a delimited files with longitude and latitude variables.
+```{r, eval=F}
+library(tidyverse)
+library(sf)
+
+points <- read_csv("points.csv") %>% 
+  st_as_sf(coords=c("lat","long"),
+           crs="+init=epsg:4326")
+
+```
+
+2. Automatically download data from any link
+```{r}
+#choose website frm where you want to download data from
+#ftp = "ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2010/"
+
+#choose sulffix for the link
+#to understand what is happening, try to run this link:
+# ftp://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2010/ac
+#estados <- c("ac", "al", "am", "ap", "ba", "ce", "df", "es", "go", "ma", "mg", 
+#             "ms", "mt", "pa", "pb", "pe", "pi", "pr", "rj", "rn", "ro", "rr", 
+#             "rs", "sc", "se", "sp", "to")
+##download
+#for (e in estados){
+#    download.file(paste0(ftp,e,"/", e, "_municipios.zip"),paste0(e,"_municipios.zip"))
+#}
+#
+##unzip
+#for (e in estados){
+#  unzip(paste0(dldir, e,"_municipios.zip"))
+#}
+
+#files where saved to your wor
+```
+
