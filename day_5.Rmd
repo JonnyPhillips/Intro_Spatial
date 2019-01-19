@@ -47,6 +47,6 @@ Files:
 [Brazilian states](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Brazil_states.zip)  
 [Brazilian Municipality Income and Voting](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Br_muns_votes.zip)
 
-[South America Population Density 2000](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/lacpopd00.tif/lacpopd00.zip)  
+[Population Density at Random Points within 20km of Brazil's Border](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Popn_at_point.zip)  
 [Brazil Border Inland](https://jonnyphillips.github.io/Intro_Spatial/Day_5/Data/Br_Border_interior.zip)
 
